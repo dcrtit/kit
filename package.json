@@ -1,6 +1,9 @@
 {
   "name": "root",
   "private": false,
+  "scripts": {
+    "dev": "lerna run dev --scope ui --stream"
+  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
