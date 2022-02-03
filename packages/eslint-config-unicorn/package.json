@@ -1,7 +1,7 @@
 {
-  "name": "eslint-config-unicorn",
+  "name": "@dcrtit/eslint-config-unicorn",
   "version": "1.0.0-alpha.0",
-  "description": "> TODO: description",
+  "description": "Collection of rules based on eslint-plugin-unicorn",
   "author": "Lennoximus <lennoximus@gmail.com>",
   "homepage": "https://github.com/dcrtit/kit#readme",
   "license": "ISC",
