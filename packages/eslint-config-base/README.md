@@ -14,7 +14,7 @@ In your `.eslintrc.js` or whatsoever config file just simple extend your existin
 module.exports = {
   extends: [
     // ...Other configs
-    '@dcrtit/eslint-config'
+    '@dcrtit/eslint-config-base'
   ],
   rules: [
     // Your own rules' overrides, if needed
