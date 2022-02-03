@@ -1,12 +1,14 @@
 # `@dcrtit/eslint-config-base`
 
-Basic ESLint config with primary Javascript rules
+Basic ESLint config with primary Javascript rules.
 
 ## Installation
 
+```shell
+npm i eslint @typescript-eslint/parser @dcrtit/eslint-config-base -D
 ```
-npm i eslint @dcrtit/eslint-config-base -D
-```
+
+## Usage
 
 In your `.eslintrc.js` or whatsoever config file just simple extend your existing configuration with provided package:
 
