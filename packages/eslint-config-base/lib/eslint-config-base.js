@@ -1,5 +1,5 @@
 module.exports = {
-  'rules': {
+  rules: {
     'lines-between-class-members': [
       1,
       'always',
