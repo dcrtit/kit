@@ -60,5 +60,8 @@
     "@vue/composition-api": {
       "optional": true
     }
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
