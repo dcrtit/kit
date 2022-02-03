@@ -1,7 +1,7 @@
 {
-  "name": "eslint-config-import",
+  "name": "@dcrtit/eslint-config-import",
   "version": "1.0.0-alpha.0",
-  "description": "> TODO: description",
+  "description": "Collection of rules based on eslint-plugin-import",
   "author": "Lennoximus <lennoximus@gmail.com>",
   "homepage": "https://github.com/dcrtit/kit#readme",
   "license": "ISC",
