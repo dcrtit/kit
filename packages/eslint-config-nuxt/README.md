@@ -1,11 +1,27 @@
-# `eslint-config-nuxt`
+# `@dcrtit/eslint-config-nuxt`
 
-> TODO: description
+Collection of rules based on `eslint-plugin-nuxt`.
+
+## Installation
+
+Assuming you have `eslint` already installed:
+
+```shell
+npm i eslint-plugin-nuxt @dcrtit/eslint-config-nuxt -D
+```
 
 ## Usage
 
-```
-const eslintConfigNuxt = require('eslint-config-nuxt');
+In your `.eslintrc.js` or whatsoever config file just simple extend your existing configuration with provided package:
 
-// TODO: DEMONSTRATE API
+```js
+module.exports = {
+  extends: [
+    // ...Other configs
+    '@dcrtit/eslint-config-nuxt'
+  ],
+  rules: [
+    // Your own rules' overrides, if needed
+  ]
+}
 ```
