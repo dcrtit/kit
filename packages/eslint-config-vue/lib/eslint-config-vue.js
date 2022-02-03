@@ -1,5 +1,5 @@
 module.exports = {
-  'rules': {
+  rules: {
     'vue/attribute-hyphenation': [
       2,
       'never'
@@ -380,6 +380,6 @@ module.exports = {
       1,
       'always'
     ],
-    'vue/component-definition-name-casing': [2, 'kebab-case'],
+    'vue/component-definition-name-casing': [2, 'kebab-case']
   }
 }
