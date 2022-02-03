@@ -1,11 +1,27 @@
-# `eslint-config-vue`
+# `@dcrtit/eslint-config-vue`
 
-> TODO: description
+Collection of rules based on `eslint-plugin-vue`.
+
+## Installation
+
+Assuming you have `eslint` already installed:
+
+```shell
+npm i eslint-plugin-vue @dcrtit/eslint-config-vue -D
+```
 
 ## Usage
 
-```
-const eslintConfigVue = require('eslint-config-vue');
+In your `.eslintrc.js` or whatsoever config file just simple extend your existing configuration with provided package:
 
-// TODO: DEMONSTRATE API
+```js
+module.exports = {
+  extends: [
+    // ...Other configs
+    '@dcrtit/eslint-config-vue'
+  ],
+  rules: [
+    // Your own rules' overrides, if needed
+  ]
+}
 ```
