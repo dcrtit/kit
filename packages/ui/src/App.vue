@@ -28,10 +28,18 @@
 
 <template>
   <div>
+    <Breadcrumbs :items="items" class="dc-breadcrumbs-  default">
+      <template #item="slotItem">
+        <p class="dc-breadcrumbs__name-item" v-bind="slotItem.attrs">
+          {{ slotItem.item.name }}
+        </p>
+      </template>
+
+    </Breadcrumbs>
 
     <h2>Слот крошки / последний НЕактивный </h2>
 
-    <Breadcrumbs :items="items" :isActiveLastItem="false" class="dc-breadcrumbs">
+    <Breadcrumbs :items="items" class="dc-breadcrumbs">
 
       <template #item="slotItem">
         <div class="c-breadcrumbs__wrap">
@@ -49,11 +57,11 @@
 
     <h2>Слот крошки / последний НЕактивный кастомизированный </h2>
 
-    <Breadcrumbs :items="items" :isActiveLastItem="false" class="dc-breadcrumbs">
+    <Breadcrumbs :items="items" class="dc-breadcrumbs">
 
       <template #item="slotItem">
         <div class="c-breadcrumbs__wrap" :class="{'custom-last-item__no-active': slotItem.isLastItem}">
-          <h4 class="dc-breadcrumbs__name-item">
+          <h4 class="dc-breadcrumbs__name-item" v-bind="slotItem.attrs">
             {{ slotItem.item.name }}
           </h4>
         </div>
@@ -62,7 +70,7 @@
     </Breadcrumbs>
 
     <h2>Слот крошки + слот сепаратор / последний НЕактивный кастомизированный</h2>
-    <Breadcrumbs :items="items" :isActiveLastItem="false"  class="dc-breadcrumbs">
+    <Breadcrumbs :items="items" class="dc-breadcrumbs">
 
       <template #item="slotItem">
         <div class="c-breadcrumbs__wrap" :class="{'custom-last-item': slotItem.isLastItem}">

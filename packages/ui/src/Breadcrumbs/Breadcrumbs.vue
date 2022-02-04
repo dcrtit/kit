@@ -1,5 +1,5 @@
 <script >
-export default {
+  export default {
     name: "breadcrumbs",
     props: {
       items:{
@@ -7,15 +7,16 @@ export default {
         required: true,
         default: () => []
       },
-      isActiveLastItem: {
-        type: Boolean,
-        default: true
-      },
       linkComponent: {
         type:String,
         required: false,
-        // todo подумать над default linkComponent
         default: "a"
+      }
+    },
+
+    computed: {
+      typeLinkAtrr() {
+        return  this.linkComponent === "a" ? 'href' : 'to'
       }
     },
 
@@ -25,13 +26,18 @@ export default {
       },
 
       componentName(index) {
-        if (this.isLastItem(index)){
-          return this.isActiveLastItem ? this.linkComponent : 'div'
-        }
-        return this.linkComponent
+        return this.isLastItem(index) ? "div" : this.linkComponent
       },
-    }
 
+      linkOptions(item, index) {
+        if (this.isLastItem(index)) {
+          return {}
+        }
+        return {
+          [this.typeLinkAtrr]: item.path,
+        }
+      }
+    }
   };
 </script>
 
@@ -44,9 +50,11 @@ export default {
           itemprop="itemListElement"
           itemtype="http://schema.org/ListItem"
           itemscope>
-        <component :is="componentName(index)" itemprop="item"
-           :href="item.path">
-            <slot name="item" :item="item" :isLastItem="isLastItem(index)" :attrs="{itemprop: 'name'}"></slot>
+        <component :is="componentName(index)"
+                   v-bind="linkOptions(item, index)"
+                   itemprop="item">
+
+          <slot name="item" :item="item" :isLastItem="isLastItem(index)" :attrs="{itemprop: 'name'}"></slot>
           <meta itemprop="position"
                 :content="index">
         </component>
