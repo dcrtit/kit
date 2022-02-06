@@ -1,7 +1,7 @@
 {
-  "name": "eslint-config-base",
-  "version": "0.0.0",
-  "description": "> TODO: description",
+  "name": "@dcrtit/eslint-config-base",
+  "version": "1.1.1-alpha.0",
+  "description": "Decart's basic ESLint config with primary Javascript rules",
   "author": "Lennoximus <lennoximus@gmail.com>",
   "homepage": "https://github.com/dcrtit/kit#readme",
   "license": "MIT",
@@ -22,5 +22,8 @@
   },
   "bugs": {
     "url": "https://github.com/dcrtit/kit/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

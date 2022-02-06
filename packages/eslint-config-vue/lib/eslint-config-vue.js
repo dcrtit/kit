@@ -1,5 +1,5 @@
 module.exports = {
-  'rules': {
+  rules: {
     'vue/attribute-hyphenation': [
       2,
       'never'
@@ -68,11 +68,19 @@ module.exports = {
     'vue/max-attributes-per-line': [
       2,
       {
-        singleline: 1,
+        singleline: {
+          "max": 1
+        },
         multiline: {
-          max: 1,
-          allowFirstLine: true
+          "max": 1
         }
+      }
+    ],
+    'vue/first-attribute-linebreak': [
+      2,
+      {
+        "singleline": "beside",
+        "multiline": "beside"
       }
     ],
     'vue/multiline-html-element-content-newline': [
@@ -380,6 +388,6 @@ module.exports = {
       1,
       'always'
     ],
-    'vue/component-definition-name-casing': [2, 'kebab-case'],
+    'vue/component-definition-name-casing': [2, 'kebab-case']
   }
 }

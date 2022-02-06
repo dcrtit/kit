@@ -1,11 +1,25 @@
-# `eslint-config-base`
+# `@dcrtit/eslint-config-base`
 
-> TODO: description
+Basic ESLint config with primary Javascript rules.
+
+## Installation
+
+```shell
+npm i eslint @typescript-eslint/parser @dcrtit/eslint-config-base -D
+```
 
 ## Usage
 
-```
-const eslintConfigBase = require('eslint-config-base');
+In your `.eslintrc.js` or whatsoever config file just simple extend your existing configuration with provided package:
 
-// TODO: DEMONSTRATE API
+```js
+module.exports = {
+  extends: [
+    // ...Other configs
+    '@dcrtit/eslint-config-base'
+  ],
+  rules: [
+    // Your own rules' overrides, if needed
+  ]
+}
 ```

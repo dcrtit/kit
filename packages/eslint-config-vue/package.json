@@ -1,7 +1,7 @@
 {
-  "name": "eslint-config-vue",
-  "version": "0.0.0",
-  "description": "> TODO: description",
+  "name": "@dcrtit/eslint-config-vue",
+  "version": "1.1.2-alpha.0",
+  "description": "Collection of rules based on eslint-plugin-vue",
   "author": "Lennoximus <lennoximus@gmail.com>",
   "homepage": "https://github.com/dcrtit/kit#readme",
   "license": "ISC",
@@ -22,5 +22,8 @@
   },
   "bugs": {
     "url": "https://github.com/dcrtit/kit/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

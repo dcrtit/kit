@@ -1,5 +1,5 @@
 module.exports = {
-  'rules': {
+  rules: {
     'unicorn/error-message': 2,
     'unicorn/escape-case': 2,
     'unicorn/explicit-length-check': 0,
