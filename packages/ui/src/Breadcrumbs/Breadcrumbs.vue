@@ -44,16 +44,18 @@
 <template>
   <nav>
     <ul itemscope
-        itemtype="http://schema.org/BreadcrumbList">
+        itemtype="http://schema.org/BreadcrumbList"
+        style="list-style: none; display: flex; align-items: center; justify-content: flex-start; margin: 0; padding: 0;">
       <li v-for="(item, index) in items"
           :key="item.path"
           itemprop="itemListElement"
           itemtype="http://schema.org/ListItem"
-          itemscope>
+          itemscope
+          style="display: inline-flex; align-items: center; position: relative;">
         <component :is="componentName(index)"
                    v-bind="linkOptions(item, index)"
-                   itemprop="item">
-
+                   itemprop="item"
+                   style="">
           <slot name="item" :item="item" :isLastItem="isLastItem(index)" :attrs="{itemprop: 'name'}"></slot>
           <meta itemprop="position"
                 :content="index">

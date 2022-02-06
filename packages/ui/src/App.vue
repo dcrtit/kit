@@ -46,9 +46,6 @@
           <h4 class="dc-breadcrumbs__name-item">
             {{ slotItem.item.name }}
           </h4>
-          <span class="dc-breadcrumbs__path">
-            ({{ slotItem.item.path }})
-          </span>
         </div>
       </template>
 
@@ -96,13 +93,9 @@
 
       <template #item="slotItem">
         <div class="c-breadcrumbs__wrap" :class="{'custom-last-item': slotItem.isLastItem}">
-          <h4 class="dc-breadcrumbs__name-item">
-            {{ slotItem.item.name }}
+          <h4 class="dc-breadcrumbs__name-item" v-bind="slotItem.attrs">
+            {{ slotItem.item.name }} {{slotItem.isLastItem? 'isLastItem' : ''}}
           </h4>
-          <span> {{slotItem.attrs}}</span>
-          <span v-if="slotItem.isLastItem">
-             -isLastItem
-          </span>
         </div>
       </template>
 
@@ -118,29 +111,6 @@
 </template>
 
 <style>
-  .dc-breadcrumbs{
-
-  }
-  ul{
-    list-style: none;
-    display: flex;
-    align-items: center;
-    margin: 0;
-  }
-  li{
-    margin-right: 12px;
-  }
-  a{
-    /*padding: 8px;*/
-    /*background: aquamarine;*/
-  }
-  .c-breadcrumbs__wrap{
-    display: inline-flex;
-    align-items: center;
-  }
-  .dc-breadcrumbs__name-item{
-    display: inline;
-  }
   .custom-last-item{
     color: brown;
   }
@@ -154,8 +124,8 @@
     padding-left: 8px;
     padding-right: 8px;
     background: burlywood;
-    margin-left: 20px;
-    margin-right: 8px;
+    margin-left: 12px;
+    margin-right: 12px;
     border-radius: 20px;
   }
   .custom-separator-round{
@@ -164,8 +134,7 @@
     height: 8px;
     border-radius: 8px;
     background: #2567c9;
-    margin-left: 20px;
-    margin-right: 8px;
-
+    margin-left: 12px;
+    margin-right: 12px;
   }
 </style>
