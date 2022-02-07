@@ -24,14 +24,17 @@ const Template = (args) => ({
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<CBreadcrumbs v-bind="args"><template #item="slotItem">\n' +
-      '        <div class="c-breadcrumbs__wrap">\n' +
-      '          <h4 class="dc-breadcrumbs__name-item">\n' +
-      '            {{ slotItem.item.name }}\n' +
-      '          </h4>\n' +
-      '        </div>\n' +
-      '      </template>' +
-      '     <CBreadcrumbs>',
+  template: `
+    <CBreadcrumbs v-bind="args">
+      <template #item="slotItem">
+        <div>
+          <h4>
+            {{ slotItem.item.name }}
+          </h4>
+        </div>
+      </template>
+    </CBreadcrumbs>
+  `
 });
 
 const TemplateSeparator = (args) => ({
@@ -42,19 +45,22 @@ const TemplateSeparator = (args) => ({
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<CBreadcrumbs v-bind="args"><template #item="slotItem">\n' +
-      '        <div class="c-breadcrumbs__wrap">\n' +
-      '          <p class="dc-breadcrumbs__name-item">\n' +
-      '            {{ slotItem.item.name }}\n' +
-      '          </p>\n' +
-      '        </div>\n' +
-      '      </template>' +
-      '      <template #separator>\n' +
-      '         <span class="custom-separator">\n'+
-      '           | \n' +
-      '         </span>\n' +
-      '       </template>\n' +
-      '<CBreadcrumbs>',
+  template: `
+    <CBreadcrumbs v-bind="args">
+      <template #item="slotItem">
+        <div>
+          <p>
+            {{ slotItem.item.name }}
+          </p>
+        </div>
+      </template>
+      <template #separator>
+        <span>
+          |
+        </span>
+       </template>
+    </CBreadcrumbs>
+  `
 });
 
 export const NoSeparator = Template.bind({});
