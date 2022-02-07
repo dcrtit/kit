@@ -1,35 +1,39 @@
-<script >
-  export default {
+<script lang="ts" >
+  import {IBreadcrumb, TBreadcrumbTag, TLinkBreadcrumbTag, TLinkAttribute, ILinkOptions} from "./types";
+  import {defineComponent} from "vue-demi";
+  import {PropType} from "vue";
+
+  export default defineComponent ({
     name: "breadcrumbs",
     props: {
       items:{
-        type: Array,
+        type: Array as PropType<IBreadcrumb[]>,
         required: true,
         default: () => []
       },
       linkComponent: {
-        type:String,
+        type: String as PropType<TLinkBreadcrumbTag>,
         required: false,
         default: "a"
       }
     },
 
     computed: {
-      typeLinkAtrr() {
+      typeLinkAtrr(): TLinkAttribute {
         return  this.linkComponent === "a" ? 'href' : 'to'
       }
     },
 
     methods: {
-      isLastItem(index) {
+      isLastItem(index: number): boolean {
         return index === this.items.length - 1
       },
 
-      componentName(index) {
+      componentName(index: number): TBreadcrumbTag {
         return this.isLastItem(index) ? "div" : this.linkComponent
       },
 
-      linkOptions(item, index) {
+      linkOptions(item: IBreadcrumb, index: number): ILinkOptions {
         if (this.isLastItem(index)) {
           return {}
         }
@@ -38,7 +42,7 @@
         }
       }
     }
-  };
+  });
 </script>
 
 <template>
