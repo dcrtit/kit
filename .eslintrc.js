@@ -24,7 +24,9 @@ module.exports = {
     '@dcrtit/eslint-config-unicorn',
     '@dcrtit/eslint-config-vue'
   ],
-  rules: {},
+  rules: {
+    indent: 0
+  },
   overrides: [
     {
       files: ['*.vue'],
