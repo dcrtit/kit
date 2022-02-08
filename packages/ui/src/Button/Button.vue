@@ -1,17 +1,19 @@
 <script lang="ts">
   import {defineComponent} from 'vue-demi'
+  import {PropType} from 'vue'
+  import {TLinkButtonTag, TButtonComponent, TButtonType, TLinkAttribute, IButtonOptions} from './Button.types'
 
   export default defineComponent({
     name: 'c-button',
     props:{
 
-      linkComponent: {
-        type: String,
+      linkTag: {
+        type: String as PropType<TLinkButtonTag>,
         required: false,
         default: 'a'
       },
       type: {
-        type: String,
+        type: String as PropType<TButtonType>,
         default: 'button'
       },
       to: {
@@ -32,20 +34,19 @@
     },
 
     computed: {
-      component () {
-        return this.to ? this.linkComponent : 'button'
+      component (): TButtonComponent {
+        return this.to ? this.linkTag : 'button'
       },
 
-      isLink () {
+      isLink (): Boolean {
         return this.component !== 'button'
       },
 
-      typeLinkAtrr() {
-
-        return  this.linkComponent === "a" ? 'href' : 'to'
+      typeLinkAtrr(): TLinkAttribute {
+        return  this.linkTag === 'a' ? 'href' : 'to'
       },
 
-      options() {
+      options(): IButtonOptions {
         if (this.isLink) {
           //если ссылка
           return {
