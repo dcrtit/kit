@@ -1,7 +1,15 @@
 <script lang="ts">
   import {defineComponent} from 'vue-demi'
   import {PropType} from 'vue'
-  import {TLinkButtonTag, TButtonComponent, TButtonType, TLinkAttribute, IButtonOptions} from './Button.types'
+  import {
+    TLinkButtonTag,
+    TButtonComponent,
+    TButtonType,
+    TLinkAttribute,
+    IButtonOptions,
+    TPath,
+    IStyleOptions
+  } from './Button.types'
 
   export default defineComponent({
     name: 'c-button',
@@ -17,7 +25,8 @@
         default: 'button'
       },
       to: {
-        type: String,
+        //todo type? default: null
+        type: String as PropType<TPath>,
         required: false,
         default: null
       },
@@ -27,6 +36,10 @@
       },
       //todo как использовать?
       loading: {
+        type: Boolean,
+        default: false
+      },
+      fullWidth: {
         type: Boolean,
         default: false
       },
@@ -46,34 +59,41 @@
         return  this.linkTag === 'a' ? 'href' : 'to'
       },
 
-      options(): IButtonOptions {
+      buttonOptions(): IButtonOptions {
         if (this.isLink) {
           //если ссылка
           return {
             [this.typeLinkAtrr]: this.to,
-            event: this.isLink && !this.disabled ? 'click' : null
+            event: this.isLink && !this.disabled ? 'click' : null,
+            style: this.buttonStyle
           }
         }
         // если кнопка
         return {
           disabled: this.disabled,
           type: this.type,
+          style: this.buttonStyle
         }
       },
-    },
 
-    methods: {
-      onClick() {
-        console.log('btn click')
+      buttonStyle(): IStyleOptions {
+        return {
+          display: this.fullWidth? 'flex' : 'inline-flex',
+          flex: this.fullWidth? '1 0 auto' : '0 0 auto',
+          minWidth: this.fullWidth? '100%!important' : 'auto',
+          alignItems: 'center',
+          justifyContent: 'center',
+          position: 'relative',
+          textDecoration: 'none',
+        }
       }
-    }
+    },
   })
 </script>
 
 <template>
   <component :is="component"
-             v-bind="options"
-             @click="onClick">
+             v-bind="buttonOptions">
 
     <slot name="prependIcon"/>
     <slot/>

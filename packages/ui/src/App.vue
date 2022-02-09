@@ -24,6 +24,14 @@
     },
   ])
 
+  const onClick = ()=>  {
+    console.log('btn onClick')
+  }
+
+  const onClick2 = ()=>  {
+    console.log('btn onClick2')
+  }
+
 
 </script>
 
@@ -33,26 +41,28 @@
 
     <div content="df">
       <Button class="custom-btn mb-24 mr-24"
-              to="/">
+              fullWidth
+              to="/"
+              @click.prevent="onClick">
         кнопка ссылка
       </Button>
 
-      <Button class="custom-btn mb-24 mr-24">
+      <Button class="custom-btn mb-24 mr-24" @click="onClick2">
         кнопка кнопка
       </Button>
 
-      <Button class="custom-btn mb-24 mr-24" disabled>
+      <Button class="custom-btn mb-24 mr-24" disabled @click="onClick2">
         кнопка disabled
       </Button>
 
       <Button class="custom-btn mb-24 mr-24"
-        >
+        to="https://dcrt.it/">
         <template #prependIcon>
-          <span>slot-Icon</span>
+          <span class="btn-icon">slot-Icon</span>
         </template>
-        кнопка 2
+        кнопка ссылка
         <template #appendIcon>
-          <span>slot-Icon</span>
+          <span class="btn-icon">slot-Icon</span>
         </template>
       </Button>
     </div>
@@ -144,6 +154,9 @@
 </template>
 
 <style>
+  * {
+    box-sizing: border-box;
+  }
   .df{
     display: flex;
   }
@@ -156,17 +169,26 @@
   .custom-btn{
     font-family: "Arial";
     font-size: 16px;
-    text-decoration: none;
     padding: 12px 24px;
     border-radius: 4px;
     border: 1px solid #5982b9;
     color: black;
     background: #c3d8f5;
     cursor: pointer;
+    width: 300px;
   }
   .custom-btn:disabled{
     cursor: not-allowed ;
     opacity: 0.6;
+  }
+  .btn-icon {
+    margin: 0 8px;
+    background: #ea5353;
+    height: 40px;
+    width: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .custom-last-item{
