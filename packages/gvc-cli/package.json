@@ -1,18 +1,8 @@
 {
-  "name": "gvc-cli",
+  "name": "@dicemasters/dcrt-vue-component",
   "version": "0.0.1",
-  "description": "Генератор Vue компонентов",
-  "keywords": [
-    "cli",
-    "vue",
-    "generate",
-    "component",
-    "node"
-  ],
-  "author": "Albert Saitov <a.saitov@dcrt.it>",
-  "homepage": "https://github.com/dcrtit/kit#readme",
-  "license": "ISC",
-  "main": "lib/gvc-cli.js",
+  "description": "Fast Vue component generator",
+  "main": "src/index.js",
   "bin": {
     "@dicem/create-vue-component": "bin/gvc",
     "gvc": "bin/gvc"
@@ -20,29 +10,22 @@
   "publishConfig": {
     "access": "public"
   },
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "bin",
-    "src/",
-    "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dcrtit/kit.git"
-  },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "bugs": {
-    "url": "https://github.com/dcrtit/kit/issues"
-  },
+  "keywords": [
+    "cli",
+    "vue",
+    "vue component"
+  ],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "arg": "^5.0.1",
-    "dotenv": "^16.0.0",
     "esm": "^3.2.25",
     "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
   }
 }
