@@ -1,0 +1,33 @@
+{
+  "name": "@dcrtit/gvc-cli",
+  "version": "0.0.1",
+  "description": "Fast Vue component generator",
+  "main": "src/index.js",
+  "bin": {
+    "@dcrtit/gvc-cli": "bin/gvc",
+    "gvc": "bin/gvc"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "cli",
+    "vue",
+    "vue component"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "arg": "^5.0.1",
+    "esm": "^3.2.25",
+    "inquirer": "^8.2.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "jest": "^27.5.1",
+    "lerna": "^4.0.0"
+  }
+}
