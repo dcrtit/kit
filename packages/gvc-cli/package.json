@@ -1,17 +1,17 @@
 {
-  "name": "@dicemasters/dcrt-vue-component",
+  "name": "@dcrtit/gvc-cli",
   "version": "0.0.1",
   "description": "Fast Vue component generator",
   "main": "src/index.js",
   "bin": {
-    "@dicem/create-vue-component": "bin/gvc",
+    "@dcrtit/gvc-cli": "bin/gvc",
     "gvc": "bin/gvc"
   },
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [
     "cli",
@@ -26,6 +26,8 @@
     "inquirer": "^8.2.0"
   },
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.16.8",
+    "jest": "^27.5.1",
     "lerna": "^4.0.0"
   }
 }
