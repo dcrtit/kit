@@ -6,7 +6,6 @@ import fs from 'fs'
 import path from 'path'
 
 export function generate (options) {
-  console.log(options)
   const component = {
     camel: camelize(options.name),
     capital: capitalize(options.name),

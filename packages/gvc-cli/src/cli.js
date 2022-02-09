@@ -1,8 +1,6 @@
 import arg from 'arg'
-import dotenv from 'dotenv'
+import defaults from './defaults'
 import { create } from './main'
-
-dotenv.config()
 
 function parseArgumentsIntoOptions (rawArgs) {
   const args = arg(
@@ -31,11 +29,11 @@ function parseArgumentsIntoOptions (rawArgs) {
   return {
     setup: args['--setup'] || false,
     help: args['--help'] || false,
-    name: args['--name'] || process.env.DEFAULT_NAME,
-    lang: args['--lang'] || process.env.DEFAULT_LANG,
-    classStyleComponent: args['--class-component'] || process.env.DEFAULT_CLASS_COMPONENT,
-    style: args['--style'] || process.env.DEFAULT_STYLE,
-    vue: args['--vue'] || process.env.DEFAULT_VUE
+    name: args['--name'] || defaults['DEFAULT_NAME'],
+    lang: args['--lang'] || defaults['DEFAULT_LANG'],
+    classStyleComponent: args['--class-component'] || defaults['DEFAULT_CLASS_COMPONENT'],
+    style: args['--style'] || defaults['DEFAULT_STYLE'],
+    vue: args['--vue'] || defaults['DEFAULT_VUE']
   }
 }
 
