@@ -3,7 +3,6 @@ import { generateStyleFile } from './generators/generateStyleFile'
 import { generateIndexFile } from './generators/generateIndexFile'
 import { camelize, capitalize, kebabize } from './utils'
 import fs from 'fs'
-import path from 'path'
 
 export function generate (options) {
   const component = {
