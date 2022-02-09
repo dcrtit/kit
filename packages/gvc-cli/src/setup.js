@@ -60,10 +60,10 @@ export async function setup () {
 
 
   const answers = await inquirer.prompt(prompts)
-  const env = `DEFAULT_NAME = "${ answers.name }"\nDEFAULT_LANG = "${ answers.lang }"\nDEFAULT_CLASS_COMPONENT = ${ answers.classComponent }\nDEFAULT_STYLE = "${ answers.style }"\nDEFAULT_VUE = "${ answers.vue }"`
+  const defaultsFileString = `export default {\n\tDEFAULT_NAME: '${ answers.name }',\n\tDEFAULT_LANG: '${ answers.lang }',\n\tDEFAULT_CLASS_COMPONENT: ${ answers.classComponent },\n\tDEFAULT_STYLE: '${ answers.style }',\n\tDEFAULT_VUE: '${ answers.vue }'\n}`
 
   try {
-    await fs.writeFile(`${ rootPath }/defaults.js`, env)
+    await fs.writeFile(`${ rootPath }/defaults.js`, defaultsFileString)
 
     console.log('Значение по умолчанию были обновлены')
     console.dir(env)
