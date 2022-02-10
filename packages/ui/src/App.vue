@@ -2,8 +2,8 @@
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
   import Breadcrumbs from './Breadcrumbs/Breadcrumbs.vue'
-  import Button from './Button/Button.vue'
-  import {reactive} from 'vue-demi'
+  import CButton from './Button/Button.vue'
+  import {reactive, ref} from 'vue-demi'
 
   const items = reactive([
     {
@@ -23,13 +23,17 @@
       path: "/category_1/category_1.2/product",
     },
   ])
+  let counter: number = 0
+  let counter2: number =0
 
   const onClick = ()=>  {
-    console.log('btn onClick')
+    counter ++
+    console.log('btn - onClick', counter)
   }
 
   const onClick2 = ()=>  {
-    console.log('btn onClick2')
+    counter2 ++
+    console.log('btn - onClick2', counter2)
   }
 
 
@@ -39,32 +43,74 @@
   <div class="btns ">
     <h2>кнопки</h2>
 
-    <div content="df">
-      <Button class="custom-btn mb-24 mr-24"
+    <div>
+      <CButton class="custom-btn mb-24 mr-24"
               fullWidth
-              to="/"
-              @click.prevent="onClick">
-        кнопка ссылка
-      </Button>
+              to="#"
+              >
+        ссылка
+      </CButton>
 
-      <Button class="custom-btn mb-24 mr-24" @click="onClick2">
-        кнопка кнопка
-      </Button>
+      <CButton class="custom-btn mb-24 mr-24" fullWidth>
+        кнопка
+      </CButton>
 
-      <Button class="custom-btn mb-24 mr-24" disabled @click="onClick2">
-        кнопка disabled
-      </Button>
+      <div style="width: 100%; display: flex;">
+        <div style="width: 400px; flex-shrink: 0; margin: 24px; padding: 12px; background: antiquewhite;">
+          <CButton class="custom-btn mb-24 mr-24" fullWidth>
+            кнопка
+          </CButton>
 
-      <Button class="custom-btn mb-24 mr-24"
-        to="https://dcrt.it/">
-        <template #prependIcon>
-          <span class="btn-icon">slot-Icon</span>
-        </template>
-        кнопка ссылка
-        <template #appendIcon>
-          <span class="btn-icon">slot-Icon</span>
-        </template>
-      </Button>
+          <CButton class="custom-btn mb-24 mr-24" fullWidth disabled @click="onClick">
+            кнопка disabled @click
+          </CButton>
+
+          <CButton class="custom-btn mb-24 mr-24" fullWidth @click="onClick2">
+            кнопка @click2
+          </CButton>
+        </div>
+
+        <div style="width: 100%; padding: 32px;">
+          <CButton class="custom-btn mb-24 mr-24" to="#">
+            ссылка
+          </CButton>
+          <CButton class="custom-btn mb-24 mr-24" disabled to="#">
+            ссылка disabled
+          </CButton>
+          <CButton class="custom-btn mb-24 mr-24" to="#" @click="onClick">
+            ссылка @click
+          </CButton>
+          <CButton class="custom-btn mb-24 mr-24" disabled to="#" @click="onClick">
+            ссылка disabled @click
+          </CButton>
+
+        </div>
+        <div style="width: 100%; padding: 32px;">
+          <CButton class="custom-btn mb-24 mr-24" linkTag="nuxt-link" to="#">
+            nuxt-link
+          </CButton>
+          <CButton class="custom-btn mb-24 mr-24" linkTag="nuxt-link" to="#" disabled>
+            nuxt-link disabled
+          </CButton>
+          <CButton class="custom-btn mb-24 mr-24" linkTag="nuxt-link" to="#" @click="onClick2">
+            nuxt-link @click
+          </CButton>
+          <CButton class="custom-btn mb-24 mr-24" linkTag="nuxt-link" to="#" disabled @click="onClick2">
+            nuxt-link disabled @click
+          </CButton>
+
+          <CButton class="custom-btn mb-24 mr-24"
+                   to="https://dcrt.it/" @click.prevent="onClick">
+            <template #prependIcon>
+              <span class="btn-icon">slot-Icon</span>
+            </template>
+            ссылка https://dcrt.it/
+            <template #appendIcon>
+              <span class="btn-icon">slot-Icon</span>
+            </template>
+          </CButton>
+        </div>
+      </div>
     </div>
 
 
@@ -175,9 +221,9 @@
     color: black;
     background: #c3d8f5;
     cursor: pointer;
-    width: 300px;
+    min-width: 200px;
   }
-  .custom-btn:disabled{
+  .custom-btn:disabled, .custom-btn[disabled='true']{
     cursor: not-allowed ;
     opacity: 0.6;
   }

@@ -60,18 +60,11 @@
       },
 
       buttonOptions(): IButtonOptions {
-        if (this.isLink) {
-          //если ссылка
-          return {
-            [this.typeLinkAtrr]: this.to,
-            event: this.isLink && !this.disabled ? 'click' : null,
-            style: this.buttonStyle
-          }
-        }
-        // если кнопка
         return {
           disabled: this.disabled,
-          type: this.type,
+          [this.typeLinkAtrr]: this.to ? this.to : null,
+          type: !this.isLink ? this.type : null,
+          event: this.isLink && !this.disabled ? 'click' : null,
           style: this.buttonStyle
         }
       },
@@ -88,12 +81,26 @@
         }
       }
     },
+
+    methods: {
+      onClick (e: MouseEvent): void {
+        console.log('onClick disabled=', this.disabled)
+
+        if (!this.disabled) {
+          console.log('this.$emit(click, e)')
+
+          this.$emit('click')
+        }
+      }
+    }
   })
 </script>
 
 <template>
   <component :is="component"
-             v-bind="buttonOptions">
+             v-bind="buttonOptions"
+             @click="onClick"
+             @click.native="onClick">
 
     <slot name="prependIcon"/>
     <slot/>
