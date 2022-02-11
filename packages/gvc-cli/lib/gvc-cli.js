@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-module.exports = gvcCli;
+module.exports = gvcCli
 
-function gvcCli() {
+function gvcCli () {
     // TODO
 }

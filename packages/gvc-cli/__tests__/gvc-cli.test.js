@@ -7,10 +7,10 @@ import {
   kebabize
 } from '../src/utils'
 import defaults from '../src/defaults'
-import { generateVueFile } from '../src/generators/generateVueFile'
-import { generateStyleFile } from '../src/generators/generateStyleFile'
-import { generateIndexFile } from '../src/generators/generateIndexFile'
-import { generate } from '../src/generate'
+import {generateVueFile} from '../src/generators/generateVueFile'
+import {generateStyleFile} from '../src/generators/generateStyleFile'
+import {generateIndexFile} from '../src/generators/generateIndexFile'
+import {generate} from '../src/generate'
 
 describe('gvc-cli/utils', () => {
   it('Camelize String Function', () => {
@@ -46,33 +46,33 @@ describe('gvc-cli/generators', () => {
   const component = {
     capital: capitalize(componentName),
     kebab: kebabize(componentName),
-    class: 'c-' + kebabize(componentName)
+    class: `c-${ kebabize(componentName)}`
   }
 
   it('Vue file generate', () => {
     const vue = generateVueFile(options, component)
-    const condition = (typeof vue === 'string') // Is String
-      && (vue.length > 0) // Is not empty
-      && !(/%CLASS_COMPONENT%/gm.test(vue)) // String not contain substring '%CLASS_COMPONENT%' replaced by DataTable
-      && (/DataTable/gm.test(vue)) // String contain substring 'DataTable'
+    const condition = typeof vue === 'string' && // Is String
+      vue.length > 0 && // Is not empty
+      !(/%CLASS_COMPONENT%/gm).test(vue) && // String not contain substring '%CLASS_COMPONENT%' replaced by DataTable
+      (/DataTable/gm).test(vue) // String contain substring 'DataTable'
 
     expect(condition).toBeTruthy()
   })
 
   it('Style file generate', () => {
     const style = generateStyleFile(component)
-    const condition = (typeof style === 'string')
-      && (style.length > 0)
-      && (/.c-data-table/gm.test(style)) // String has a class substring
+    const condition = typeof style === 'string' &&
+      style.length > 0 &&
+      (/.c-data-table/gm).test(style) // String has a class substring
 
     expect(condition).toBeTruthy()
   })
 
   it('Index file generate', () => {
     const index = generateIndexFile(component)
-    const condition = (typeof index === 'string')
-      && (index.length > 0)
-      && (/DataTable/gm.test(index)) // String has a capitalize component name
+    const condition = typeof index === 'string' &&
+      index.length > 0 &&
+      (/DataTable/gm).test(index) // String has a capitalize component name
 
     expect(condition).toBeTruthy()
   })

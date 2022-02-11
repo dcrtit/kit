@@ -1,6 +1,6 @@
-import { generate } from './generate'
-import { help } from './help'
-import { setup } from './setup'
+import {generate} from './generate'
+import {help} from './help'
+import {setup} from './setup'
 
 export const rootPath = __dirname
 

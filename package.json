@@ -2,12 +2,22 @@
   "name": "@dcrtit/kit",
   "private": false,
   "scripts": {
-    "dev": "lerna run dev --scope ui --stream"
+    "dev": "lerna run dev --scope ui --stream",
+    "lint:js": "eslint --ext .js,.ts,.vue --ignore-path .eslintignore .",
+    "lint:fix:js": "eslint --ext .js,.ts,.vue --fix --ignore-path .eslintignore .",
+    "lint": "concurrently \"npm:lint:js\" --kill-others-on-fail",
+    "lint:fix": "concurrently \"npm:lint:fix:js\""
   },
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "eslint --fix"
+    ]
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
@@ -17,6 +27,7 @@
     "@dcrtit/eslint-config-unicorn": "^1.1.1-alpha.0",
     "@dcrtit/eslint-config-vue": "^1.1.2-alpha.0",
     "@typescript-eslint/parser": "^5.10.2",
+    "concurrently": "^6.2.0",
     "eslint": "^7.32.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-unicorn": "^40.1.0",

@@ -1,7 +1,7 @@
-'use strict';
+'use strict'
 
-module.exports = ui;
+module.exports = ui
 
-function ui() {
-    // TODO
+function ui () {
+  // TODO
 }

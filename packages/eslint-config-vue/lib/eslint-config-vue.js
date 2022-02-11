@@ -69,18 +69,18 @@ module.exports = {
       2,
       {
         singleline: {
-          "max": 1
+          max: 1
         },
         multiline: {
-          "max": 1
+          max: 1
         }
       }
     ],
     'vue/first-attribute-linebreak': [
       2,
       {
-        "singleline": "beside",
-        "multiline": "beside"
+        singleline: 'beside',
+        multiline: 'beside'
       }
     ],
     'vue/multiline-html-element-content-newline': [

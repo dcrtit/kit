@@ -1,15 +1,15 @@
-import { generateVueFile } from './generators/generateVueFile'
-import { generateStyleFile } from './generators/generateStyleFile'
-import { generateIndexFile } from './generators/generateIndexFile'
-import { camelize, capitalize, kebabize } from './utils'
 import fs from 'fs'
+import {generateVueFile} from './generators/generateVueFile'
+import {generateStyleFile} from './generators/generateStyleFile'
+import {generateIndexFile} from './generators/generateIndexFile'
+import {camelize, capitalize, kebabize} from './utils'
 
 export function generate (options) {
   const component = {
     camel: camelize(options.name),
     capital: capitalize(options.name),
     kebab: kebabize(options.name),
-    class: 'c-' + kebabize(options.name)
+    class: `c-${ kebabize(options.name)}`
   }
 
   const vue = generateVueFile(options, component)
@@ -19,26 +19,27 @@ export function generate (options) {
   try {
     build(vue, style, index, component, options)
 
-    console.log('\x1b[36m%s\x1b[0m', 'Component generate succesfuly!')
-  } catch (error) {
-    console.log('\x1b[41m%s\x1b[0m', 'Something wrong...')
+    console.log('\x1B[36m%s\x1B[0m', 'Component generate succesfuly!')
+  }
+ catch (error) {
+    console.log('\x1B[41m%s\x1B[0m', 'Something wrong...')
     console.error(error)
   }
 }
 
 function build (vue, style, index, component, options) {
-  const componentsDir = process.cwd() + '/components'
-  const componentDir = componentsDir + '/' + component.capital
+  const componentsDir = `${process.cwd() }/components`
+  const componentDir = `${componentsDir }/${ component.capital}`
   const config = {
     encoding: 'utf-8'
   }
 
   if (!fs.existsSync(componentsDir)) {
-    fs.mkdirSync(componentsDir, { recursive: true })
+    fs.mkdirSync(componentsDir, {recursive: true})
   }
 
   if (!fs.existsSync(componentDir)) {
-    fs.mkdirSync(componentDir, { recursive: true })
+    fs.mkdirSync(componentDir, {recursive: true})
   }
 
   fs.writeFileSync(`${ componentDir }/${ component.capital }.vue`, vue, config)

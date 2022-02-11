@@ -1,7 +1,7 @@
-import inquirer from 'inquirer'
 import * as fs from 'fs/promises'
+import inquirer from 'inquirer'
 import defaults from './defaults'
-import { rootPath } from './main'
+import {rootPath} from './main'
 
 export async function setup () {
   const options = {
@@ -11,21 +11,21 @@ export async function setup () {
     {
       name: 'name',
       message: 'Имя компонента',
-      default: options['DEFAULT_NAME'],
-      validate: (value) => !!value
+      default: options.DEFAULT_NAME,
+      validate: value => Boolean(value)
     },
     {
       name: 'lang',
       type: 'list',
       message: 'Язык шаблона компонента',
       choices: ['typescript', 'javascript'],
-      default: options['DEFAULT_LANG']
+      default: options.DEFAULT_LANG
     },
     {
       name: 'classComponent',
       type: 'confirm',
       message: 'Использовать ООП синтаксис для компонентов? (vue-class-components)',
-      default: options['DEFAULT_CLASS_COMPONENT']
+      default: options.DEFAULT_CLASS_COMPONENT
     },
     {
       name: 'style',
@@ -38,7 +38,7 @@ export async function setup () {
         'less',
         'stylus'
       ],
-      default: options['DEFAULT_STYLE']
+      default: options.DEFAULT_STYLE
     },
     {
       name: 'vue',
@@ -54,7 +54,7 @@ export async function setup () {
           value: 'vue3'
         }
       ],
-      default: options['DEFAULT_VUE']
+      default: options.DEFAULT_VUE
     }
   ]
 
@@ -67,7 +67,8 @@ export async function setup () {
 
     console.log('Значение по умолчанию были обновлены')
     console.dir(env)
-  } catch (error) {
+  }
+ catch (error) {
     console.error('Произошел непредвиденный пиздец', error)
   }
 }

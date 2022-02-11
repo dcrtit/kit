@@ -1,7 +1,9 @@
-'use strict';
+'use strict'
 
-const eslintConfigUnicorn = require('..');
+// @todo: Write tests
+// eslint-disable-next-line no-unused-vars
+const eslintConfigUnicorn = require('..')
 
 describe('eslint-config-unicorn', () => {
-    it('needs tests');
-});
+    it('needs tests')
+})

@@ -2,9 +2,7 @@ import path from 'path'
 
 export function camelize (string) {
   if (string) {
-    return string.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => {
-      return index === 0 ? word.toLowerCase() : word.toUpperCase()
-    }).replace(/\s+/g, '')
+    return string.replace(/(?:^\w|[A-Z]|\b\w)/g, (word, index) => (index === 0 ? word.toLowerCase() : word.toUpperCase())).replace(/\s+/g, '')
   }
 
   return new Error('String is empty...')
@@ -12,9 +10,7 @@ export function camelize (string) {
 
 export function capitalize (string) {
   if (string) {
-    return string.replace(/(?:^\w|[A-Z]|\b\w)/g, word => {
-      return word.toUpperCase()
-    }).replace(/\s+/g, '')
+    return string.replace(/(?:^\w|[A-Z]|\b\w)/g, word => word.toUpperCase()).replace(/\s+/g, '')
   }
 
   return new Error('String is empty...')
