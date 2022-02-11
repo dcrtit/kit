@@ -1,6 +1,5 @@
 'use strict'
 
-import path from 'path'
 import {
   camelize,
   capitalize,
@@ -10,7 +9,6 @@ import defaults from '../src/defaults'
 import {generateVueFile} from '../src/generators/generateVueFile'
 import {generateStyleFile} from '../src/generators/generateStyleFile'
 import {generateIndexFile} from '../src/generators/generateIndexFile'
-import {generate} from '../src/generate'
 
 describe('gvc-cli/utils', () => {
   it('Camelize String Function', () => {
