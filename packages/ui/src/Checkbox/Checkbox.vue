@@ -6,6 +6,7 @@ import {
   TCheckboxValue,
   ICheckboxOptions
 } from "./Checkbox.types";
+import { IEvent } from '../libs/types';
 import {PropType} from "vue";
 
 export default defineComponent ({
@@ -75,6 +76,46 @@ export default defineComponent ({
     }
   },
 
+  methods: {
+    onChange (e: IEvent<HTMLInputElement>): void {
+      if (!this.disabled) {
+        const checked: boolean = e.target.checked
+
+        if (typeof this.modelValue === 'boolean') {
+          this.$emit('change', e, checked)
+        }
+        else if (Array.isArray(this.modelValue)) {
+          const newModelValue: TCheckboxModel = this.modelValue.slice()
+
+          if (['string', 'number'].includes(typeof this.value)) {
+            if (checked) {
+              newModelValue.push(this.value)
+            }
+            else {
+              newModelValue.splice(newModelValue.indexOf(this.value), 1)
+            }
+          }
+          else if (typeof this.value === 'object') {
+            console.log('object!!!')
+            if (!this.comparatorField) {
+              throw new Error('comparatorField should be specified when the checkbox value\'s type is object')
+            }
+
+            const valueIndex: number = newModelValue.findIndex((value: TCheckboxValue): boolean => (value as TCheckboxValueObject)[this.comparatorField] === (this.value as TCheckboxValueObject)[this.comparatorField])
+
+            if (checked) {
+              newModelValue.push(this.value)
+            }
+            else {
+              newModelValue.splice(valueIndex, 1)
+            }
+          }
+          this.$emit('change', e, newModelValue)
+        }
+      }
+    }
+  }
+
 })
 
 </script>
@@ -82,7 +123,8 @@ export default defineComponent ({
 <template>
   <label >
     <input type="checkbox"
-           v-bind="checkboxOptions" >
+           v-bind="checkboxOptions"
+           @change.stop="onChange">
 
     <slot/>
     <slot name="checkboxIcon"></slot>
