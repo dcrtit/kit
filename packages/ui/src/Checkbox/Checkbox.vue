@@ -15,14 +15,12 @@ export default defineComponent ({
     event: 'change'
   },
   props: {
-    //modelValue - может содержать массив [выбранных значений] или просто true/false
     modelValue: {
-      type: Array as PropType<TCheckboxModel>,
+      type: [Array,Boolean] as PropType<TCheckboxModel>,
       default: false
     },
-    // значение чекбокса
     value: {
-      type: String as PropType<TCheckboxValue>,
+      type: [String, Object, Number, Boolean] as PropType<TCheckboxValue>,
       default: ''
     },
     comparatorField: {
