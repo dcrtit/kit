@@ -1,26 +1,26 @@
 <script setup lang="ts">
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-  import Breadcrumbs from './Breadcrumbs/Breadcrumbs.vue'
   import {reactive} from 'vue-demi'
+  import Breadcrumbs from './Breadcrumbs/Breadcrumbs.vue'
 
   const items = reactive([
     {
-      name: "Главная",
-      path: '/',
+      name: 'Главная',
+      path: '/'
     },
     {
-      name: "Категория 1",
-      path: "/category_1",
+      name: 'Категория 1',
+      path: '/category_1'
     },
     {
-      name: "Категория 1.2",
-      path: "/category_1/category_1.2",
+      name: 'Категория 1.2',
+      path: '/category_1/category_1.2'
     },
     {
-      name: "Товар",
-      path: "/category_1/category_1.2/product",
-    },
+      name: 'Товар',
+      path: '/category_1/category_1.2/product'
+    }
   ])
 
 
@@ -28,19 +28,22 @@
 
 <template>
   <div>
-    <Breadcrumbs :items="items" class="dc-breadcrumbs-  default">
+    <Breadcrumbs :items="items"
+                 class="dc-breadcrumbs-  default">
       <template #item="slotItem">
-        <p class="dc-breadcrumbs__name-item" v-bind="slotItem.attrs">
+        <p class="dc-breadcrumbs__name-item"
+           v-bind="slotItem.attrs">
           {{ slotItem.item.name }}
         </p>
       </template>
-
     </Breadcrumbs>
 
-    <h2>Слот крошки / последний НЕактивный </h2>
+    <h2>
+      Слот крошки / последний НЕактивный
+    </h2>
 
-    <Breadcrumbs :items="items" class="dc-breadcrumbs">
-
+    <Breadcrumbs :items="items"
+                 class="dc-breadcrumbs">
       <template #item="slotItem">
         <div class="c-breadcrumbs__wrap">
           <h4 class="dc-breadcrumbs__name-item">
@@ -48,29 +51,34 @@
           </h4>
         </div>
       </template>
-
     </Breadcrumbs>
 
 
-    <h2>Слот крошки / последний НЕактивный кастомизированный </h2>
+    <h2>
+      Слот крошки / последний НЕактивный кастомизированный
+    </h2>
 
-    <Breadcrumbs :items="items" class="dc-breadcrumbs">
-
+    <Breadcrumbs :items="items"
+                 class="dc-breadcrumbs">
       <template #item="slotItem">
-        <div class="c-breadcrumbs__wrap" :class="{'custom-last-item__no-active': slotItem.isLastItem}">
-          <h4 class="dc-breadcrumbs__name-item" v-bind="slotItem.attrs">
+        <div class="c-breadcrumbs__wrap"
+             :class="{'custom-last-item__no-active': slotItem.isLastItem}">
+          <h4 class="dc-breadcrumbs__name-item"
+              v-bind="slotItem.attrs">
             {{ slotItem.item.name }}
           </h4>
         </div>
       </template>
-
     </Breadcrumbs>
 
-    <h2>Слот крошки + слот сепаратор / последний НЕактивный кастомизированный</h2>
-    <Breadcrumbs :items="items" class="dc-breadcrumbs">
-
+    <h2>
+      Слот крошки + слот сепаратор / последний НЕактивный кастомизированный
+    </h2>
+    <Breadcrumbs :items="items"
+                 class="dc-breadcrumbs">
       <template #item="slotItem">
-        <div class="c-breadcrumbs__wrap" :class="{'custom-last-item': slotItem.isLastItem}">
+        <div class="c-breadcrumbs__wrap"
+             :class="{'custom-last-item': slotItem.isLastItem}">
           <h4 class="dc-breadcrumbs__name-item">
             {{ slotItem.item.name }}
           </h4>
@@ -81,32 +89,31 @@
       </template>
 
       <template #separator>
-        <span class="custom-separator-round">
-
-        </span>
+        <span class="custom-separator-round"/>
       </template>
-
     </Breadcrumbs>
 
-    <h2>Слот крошки + слот сепаратор / последний активный кастомизированный</h2>
-    <Breadcrumbs :items="items" class="dc-breadcrumbs">
-
+    <h2>
+      Слот крошки + слот сепаратор / последний активный кастомизированный
+    </h2>
+    <Breadcrumbs :items="items"
+                 class="dc-breadcrumbs">
       <template #item="slotItem">
-        <div class="c-breadcrumbs__wrap" :class="{'custom-last-item': slotItem.isLastItem}">
-          <h4 class="dc-breadcrumbs__name-item" v-bind="slotItem.attrs">
-            {{ slotItem.item.name }} {{slotItem.isLastItem? 'isLastItem' : ''}}
+        <div class="c-breadcrumbs__wrap"
+             :class="{'custom-last-item': slotItem.isLastItem}">
+          <h4 class="dc-breadcrumbs__name-item"
+              v-bind="slotItem.attrs">
+            {{ slotItem.item.name }} {{ slotItem.isLastItem ? 'isLastItem' : '' }}
           </h4>
         </div>
       </template>
 
       <template #separator>
         <span class="custom-separator">
-            |
+          |
         </span>
       </template>
-
     </Breadcrumbs>
-
   </div>
 </template>
 

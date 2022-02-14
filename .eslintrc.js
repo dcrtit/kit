@@ -25,7 +25,7 @@ module.exports = {
     '@dcrtit/eslint-config-vue'
   ],
   rules: {
-    indent: 0
+    // indent: 0
   },
   overrides: [
     {
