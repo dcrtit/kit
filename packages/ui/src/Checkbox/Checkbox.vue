@@ -6,7 +6,7 @@ import {
   TCheckboxValue,
   ICheckboxOptions
 } from "./Checkbox.types";
-import { IEvent } from '../libs/types';
+import {IEvent, IStyleOptions} from '../libs/types';
 import {PropType} from "vue";
 
 export default defineComponent ({
@@ -73,6 +73,17 @@ export default defineComponent ({
         checked: this.isChecked,
         required: this.required
       }
+    },
+
+    checkboxStyles(): IStyleOptions {
+      return {
+        display: 'flex',
+        position: 'relative',
+        width: '100%',
+        // alignItems: 'center',
+        flexDirection: this.reverse? 'row-reverse': '',
+        justifyContent: this.reverse? 'flex-end' : ''
+      }
     }
   },
 
@@ -121,7 +132,7 @@ export default defineComponent ({
 </script>
 
 <template>
-  <label >
+  <label :style="checkboxStyles">
     <input type="checkbox"
            v-bind="checkboxOptions"
            @change.stop="onChange">
