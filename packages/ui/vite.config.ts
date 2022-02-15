@@ -1,3 +1,5 @@
+// eslint-disable-next-line spaced-comment
+/// <reference types="vitest" />
 import {defineConfig} from 'vite'
 import vue from '@vitejs/plugin-vue'
 
@@ -6,5 +8,6 @@ export default defineConfig({
   plugins: [vue()],
   optimizeDeps: {
     exclude: ['vue-demi']
-  }
+  },
+  test: {}
 })
