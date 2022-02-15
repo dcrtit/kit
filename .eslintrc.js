@@ -22,10 +22,11 @@ module.exports = {
     '@dcrtit/eslint-config-base',
     '@dcrtit/eslint-config-import',
     '@dcrtit/eslint-config-unicorn',
-    '@dcrtit/eslint-config-vue'
+    '@dcrtit/eslint-config-vue',
+    '@dcrtit/eslint-config-vue3'
   ],
   rules: {
-    // indent: 0
+    indent: 0
   },
   overrides: [
     {

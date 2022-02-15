@@ -26,6 +26,7 @@
     "@dcrtit/eslint-config-import": "^1.1.1-alpha.0",
     "@dcrtit/eslint-config-unicorn": "^1.1.1-alpha.0",
     "@dcrtit/eslint-config-vue": "^1.1.2-alpha.0",
+    "@dcrtit/eslint-config-vue3": "^1.1.2-alpha.0",
     "@typescript-eslint/parser": "^5.11.0",
     "concurrently": "^6.2.0",
     "eslint": "^8.8.0",
