@@ -18,7 +18,7 @@ module.exports = {
   },
   plugins: ['import', 'unicorn', 'vue'],
   extends: [
-    'plugin:vue/vue3-recommended',
+    'plugin:vue/base',
     '@dcrtit/eslint-config-base',
     '@dcrtit/eslint-config-import',
     '@dcrtit/eslint-config-unicorn',
