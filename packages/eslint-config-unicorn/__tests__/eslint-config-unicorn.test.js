@@ -5,5 +5,5 @@
 const eslintConfigUnicorn = require('..')
 
 describe('eslint-config-unicorn', () => {
-    it('needs tests')
+  it('needs tests')
 })

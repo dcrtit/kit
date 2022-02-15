@@ -68,7 +68,7 @@ export async function setup () {
     console.log('Значение по умолчанию были обновлены')
     console.dir(env)
   }
- catch (error) {
+  catch (error) {
     console.error('Произошел непредвиденный пиздец', error)
   }
 }

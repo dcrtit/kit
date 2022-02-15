@@ -5,5 +5,5 @@
 const eslintConfigImport = require('..')
 
 describe('eslint-config-import', () => {
-    it('needs tests')
+  it('needs tests')
 })

@@ -1,7 +1,8 @@
-'use strict';
+'use strict'
 
-const eslintConfigVue3 = require('..');
+// eslint-disable-next-line no-unused-vars
+const eslintConfigVue3 = require('..')
 
 describe('eslint-config-vue3', () => {
-    it('needs tests');
-});
+  it('needs tests')
+})

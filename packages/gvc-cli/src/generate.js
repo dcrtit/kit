@@ -21,7 +21,7 @@ export function generate (options) {
 
     console.log('\x1B[36m%s\x1B[0m', 'Component generate succesfuly!')
   }
- catch (error) {
+  catch (error) {
     console.log('\x1B[41m%s\x1B[0m', 'Something wrong...')
     console.error(error)
   }

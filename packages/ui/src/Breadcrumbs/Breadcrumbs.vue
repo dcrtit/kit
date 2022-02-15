@@ -1,12 +1,12 @@
 <script lang="ts" >
-  import {IBreadcrumb, TBreadcrumbTag, TLinkBreadcrumbTag, TLinkAttribute, ILinkOptions} from "./types";
-  import {defineComponent} from "vue-demi";
-  import {PropType} from "vue";
+  import {defineComponent} from 'vue-demi'
+  import {PropType} from 'vue'
+  import {IBreadcrumb, TBreadcrumbTag, TLinkBreadcrumbTag, TLinkAttribute, ILinkOptions} from './types'
 
-  export default defineComponent ({
-    name: "breadcrumbs",
+  export default defineComponent({
+    name: 'breadcrumbs',
     props: {
-      items:{
+      items: {
         type: Array as PropType<IBreadcrumb[]>,
         required: true,
         default: () => []
@@ -14,35 +14,36 @@
       linkComponent: {
         type: String as PropType<TLinkBreadcrumbTag>,
         required: false,
-        default: "a"
+        default: 'a'
       }
     },
 
     computed: {
-      typeLinkAtrr(): TLinkAttribute {
-        return  this.linkComponent === "a" ? 'href' : 'to'
+      typeLinkAtrr (): TLinkAttribute {
+        return this.linkComponent === 'a' ? 'href' : 'to'
       }
     },
 
     methods: {
-      isLastItem(index: number): boolean {
+      isLastItem (index: number): boolean {
         return index === this.items.length - 1
       },
 
-      componentName(index: number): TBreadcrumbTag {
-        return this.isLastItem(index) ? "div" : this.linkComponent
+      componentName (index: number): TBreadcrumbTag {
+        return this.isLastItem(index) ? 'div' : this.linkComponent
       },
 
-      linkOptions(item: IBreadcrumb, index: number): ILinkOptions {
+      linkOptions (item: IBreadcrumb, index: number): ILinkOptions {
         if (this.isLastItem(index)) {
           return {}
         }
+
         return {
-          [this.typeLinkAtrr]: item.path,
+          [this.typeLinkAtrr]: item.path
         }
       }
     }
-  });
+  })
 </script>
 
 <template>
@@ -60,11 +61,15 @@
                    v-bind="linkOptions(item, index)"
                    itemprop="item"
                    style="">
-          <slot name="item" :item="item" :isLastItem="isLastItem(index)" :attrs="{itemprop: 'name'}"></slot>
+          <slot name="item"
+                :item="item"
+                :isLastItem="isLastItem(index)"
+                :attrs="{itemprop: 'name'}"/>
           <meta itemprop="position"
                 :content="index">
         </component>
-        <slot v-if="!isLastItem(index)" name="separator"></slot>
+        <slot v-if="!isLastItem(index)"
+              name="separator"/>
       </li>
     </ul>
   </nav>

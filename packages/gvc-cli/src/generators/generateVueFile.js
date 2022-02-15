@@ -27,19 +27,19 @@ export function generateVueFile (options, component) {
   if (options.lang === 'javascript' && options.vue === 'vue2' && !options.classStyleComponent) {
     scriptFile = 'javascript/v2.js'
   }
- else if (options.lang === 'javascript' && options.vue === 'vue2' && options.classStyleComponent) {
+  else if (options.lang === 'javascript' && options.vue === 'vue2' && options.classStyleComponent) {
     scriptFile = 'javascript/v2cc.js'
   }
- else if (options.lang === 'javascript' && options.vue === 'vue3') {
+  else if (options.lang === 'javascript' && options.vue === 'vue3') {
     scriptFile = 'javascript/v3.js'
   }
- else if (options.lang === 'typescript' && options.vue === 'vue2' && !options.classStyleComponent) {
+  else if (options.lang === 'typescript' && options.vue === 'vue2' && !options.classStyleComponent) {
     scriptFile = 'typescript/v2.ts'
   }
- else if (options.lang === 'typescript' && options.vue === 'vue2' && options.classStyleComponent) {
+  else if (options.lang === 'typescript' && options.vue === 'vue2' && options.classStyleComponent) {
     scriptFile = 'typescript/v2cc.ts'
   }
- else if (options.lang === 'typescript' && options.vue === 'vue3') {
+  else if (options.lang === 'typescript' && options.vue === 'vue3') {
     scriptFile = 'typescript/v3.ts'
   }
 
@@ -57,14 +57,14 @@ export function generateVueFile (options, component) {
   if (!options.classStyleComponent) {
     script = scriptFileString.replace('%COMPONENT_NAME%', component.class)
   }
- else {
+  else {
     script = scriptFileString.replace('%CLASS_COMPONENT%', component.capital)
   }
 
   if (options.lang === 'typescript') {
     templateScript = `<script lang="ts">\n${ script }\n</script>`
   }
- else {
+  else {
     templateScript = `<script>\n${ script }\n</script>`
   }
 

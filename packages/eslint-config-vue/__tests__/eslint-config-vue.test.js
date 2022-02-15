@@ -5,5 +5,5 @@
 const eslintConfigVue = require('..')
 
 describe('eslint-config-vue', () => {
-    it('needs tests')
+  it('needs tests')
 })

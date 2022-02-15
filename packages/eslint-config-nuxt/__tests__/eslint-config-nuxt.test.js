@@ -5,5 +5,5 @@
 const eslintConfigNuxt = require('..')
 
 describe('eslint-config-nuxt', () => {
-    it('needs tests')
+  it('needs tests')
 })
