@@ -71,7 +71,8 @@ export default defineComponent ({
       return {
         disabled: this.disabled,
         checked: this.isChecked,
-        required: this.required
+        required: this.required,
+        style: this.stylesDefaultChekbox
       }
     },
 
@@ -84,6 +85,23 @@ export default defineComponent ({
         flexDirection: this.reverse? 'row-reverse': '',
         justifyContent: this.reverse? 'flex-end' : ''
       }
+    },
+
+    hiddenDefaultChekbox (): boolean {
+      return !!(this.$slots.customCheckbox || (this.$slots.iconCheckOff && this.$slots.iconCheckOn))
+    },
+
+    stylesDefaultChekbox(): IStyleOptions {
+      if (this.hiddenDefaultChekbox){
+        return {
+          position: 'absolute',
+          zIndex: '-1',
+          top: '0',
+          left: '0',
+          opacity:' 0'
+        }
+      }
+      return {}
     }
   },
 
@@ -137,8 +155,15 @@ export default defineComponent ({
            v-bind="checkboxOptions"
            @change.stop="onChange">
 
+    <template v-if="$slots.customCheckbox">
+      <slot name="customCheckbox"></slot>
+    </template>
+    <template v-else-if="$slots.iconCheckOff && $slots.iconCheckOn" >
+      <slot v-if="this.isChecked" name="iconCheckOn"></slot>
+      <slot v-else name="iconCheckOff"></slot>
+    </template>
+
     <slot/>
-    <slot name="checkboxIcon"></slot>
   </label>
 </template>
 
