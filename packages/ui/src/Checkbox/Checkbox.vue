@@ -111,7 +111,7 @@ export default defineComponent ({
         const checked: boolean = e.target.checked
 
         if (typeof this.modelValue === 'boolean') {
-          this.$emit('change', e, checked)
+          this.$emit('update:modelValue', checked)
         }
         else if (Array.isArray(this.modelValue)) {
           const newModelValue: TCheckboxModel = this.modelValue.slice()
@@ -139,7 +139,7 @@ export default defineComponent ({
               newModelValue.splice(valueIndex, 1)
             }
           }
-          this.$emit('change', e, newModelValue)
+          this.$emit('update:modelValue', newModelValue)
         }
       }
     }
