@@ -395,151 +395,314 @@ module.exports = {
       }
     ],
     'vue/jsx-uses-vars': 0,
-    'vue/script-setup-uses-vars': 2,
-    'vue/no-deprecated-data-object-declaration': 2,
-    // @todo: Enable when migrating to Vue 3.
-    'vue/no-deprecated-destroyed-lifecycle': 0,
-    // @todo: Enable when migrating to Vue 3.
-    'vue/no-deprecated-dollar-listeners-api': 0,
-    // @todo: Enable when migrating to Vue 3.
-    'vue/no-deprecated-dollar-scopedslots-api': 0,
-    // @todo: Enable when migrating to Vue 3.
-    'vue/no-deprecated-events-api': 0,
-    // No matter what version of vue we are using, it was a bad idea to use filters anyway.
-    'vue/no-deprecated-filter': 2,
-    // @todo: Enable when migrating to Vue 3.
-    'vue/no-deprecated-functional-template': 0,
-    'vue/no-deprecated-html-element-is': 2,
-    'vue/no-deprecated-inline-template': 2,
-    // @todo: Enable when migrating to Vue 3.
-    'vue/no-deprecated-props-default-this': 0,
-    'vue/no-deprecated-router-link-tag-prop': [],
-    'vue/no-deprecated-scope-attribute': [],
-    'vue/no-deprecated-slot-attribute': [],
-    'vue/no-deprecated-slot-scope-attribute': [],
-    'vue/no-deprecated-v-bind-sync': [],
-    'vue/no-deprecated-v-is': [],
-    'vue/no-deprecated-v-on-native-modifier': [],
-    'vue/no-deprecated-v-on-number-modifiers': [],
-    'vue/no-deprecated-vue-config-keycodes': [],
-    'vue/no-dupe-v-else-if': [],
-    'vue/no-export-in-script-setup': [],
-    'vue/no-lifecycle-after-await': [],
-    'vue/no-mutating-props': [],
-    'vue/no-ref-as-operand': [],
-    'vue/no-reserved-props': [],
-    'vue/no-setup-props-destructure': [],
-    'vue/no-useless-template-attributes': [],
-    'vue/no-v-for-template-key-on-child': [],
-    'vue/no-watch-after-await': [],
-    'vue/require-slots-as-functions': [],
-    'vue/require-toggle-inside-transition': [],
-    'vue/return-in-emits-validator': [],
-    'vue/valid-define-emits': [],
-    'vue/valid-define-props': [],
-    'vue/valid-next-tick': [],
-    'vue/valid-v-is': [],
-    'vue/valid-v-memo': [],
-    'vue/valid-v-slot': [],
-    'vue/one-component-per-file': [],
-    'vue/require-explicit-emits': [],
-    'vue/v-on-event-hyphenation': [],
-    'vue/v-slot-style': [],
-    'vue/component-tags-order': [],
-    'vue/no-lone-template': [],
-    'vue/no-multiple-slot-args': [],
-    'vue/multi-word-component-names': [],
-    'vue/no-arrow-functions-in-watch': [],
-    'vue/no-computed-properties-in-data': [],
-    'vue/no-custom-modifiers-on-v-model': [],
-    'vue/no-dupe-v-else-if': [],
-    'vue/no-multiple-template-root': [],
-    'vue/no-mutating-props': [],
-    'vue/no-reserved-props': [],
-    'vue/no-useless-template-attributes': [],
-    'vue/no-v-for-template-key': [],
-    'vue/no-v-model-argument': [],
-    'vue/valid-next-tick': [],
-    'vue/valid-v-bind-sync': [],
-    'vue/valid-v-slot': [],
-    'vue/one-component-per-file': [],
-    'vue/v-slot-style': [],
-    'vue/component-tags-order': [],
-    'vue/no-lone-template': [],
-    'vue/no-multiple-slot-args': [],
-    'vue/block-lang': [],
-    'vue/block-tag-newline': [],
-    'vue/component-api-style': [],
-    'vue/component-options-name-casing': [],
-    'vue/custom-event-name-casing': [],
-    'vue/html-button-has-type': [],
-    'vue/html-comment-content-newline': [],
-    'vue/html-comment-content-spacing': [],
-    'vue/html-comment-indent': [],
-    'vue/new-line-between-multi-line-property': [],
-    'vue/next-tick-style': [],
-    'vue/no-bare-strings-in-template': [],
-    'vue/no-child-content': [],
-    'vue/no-duplicate-attr-inheritance': [],
-    'vue/no-empty-component-block': [],
-    'vue/no-expose-after-await': [],
-    'vue/no-invalid-model-keys': [],
-    'vue/no-multiple-objects-in-class': [],
-    'vue/no-potential-component-option-typo': [],
-    'vue/no-reserved-component-names': [],
-    'vue/no-restricted-block': [],
-    'vue/no-restricted-call-after-await': [],
-    'vue/no-restricted-class': [],
-    'vue/no-restricted-component-options': [],
-    'vue/no-restricted-custom-event': [],
-    'vue/no-restricted-props': [],
-    'vue/no-restricted-static-attribute': [],
-    'vue/no-restricted-v-bind': [],
-    'vue/no-static-inline-styles': [],
-    'vue/no-template-target-blank': [],
-    'vue/no-this-in-before-route-enter': [],
-    'vue/no-undef-components': [],
-    'vue/no-undef-properties': [],
-    'vue/no-unsupported-features': [],
-    'vue/no-unused-properties': [],
-    'vue/no-unused-refs': [],
-    'vue/no-use-computed-property-like-method': [],
-    'vue/no-useless-mustaches': [],
-    'vue/no-useless-v-bind': [],
-    'vue/no-v-text-v-html-on-component': [],
-    'vue/no-v-text': [],
-    'vue/prefer-separate-static-class': [],
-    'vue/require-emit-validator': [],
-    'vue/require-expose': [],
-    'vue/require-name-property': [],
-    'vue/sort-keys': [],
-    'vue/static-class-names-order': [],
-    'vue/v-for-delimiter-style': [],
-    'vue/array-bracket-newline': [],
-    'vue/comma-spacing': [],
-    'vue/comma-style': [],
-    'vue/dot-location': [],
-    'vue/dot-notation': [],
-    'vue/func-call-spacing': [],
-    'vue/keyword-spacing': [],
-    'vue/max-len': [],
-    'vue/no-constant-condition': [],
-    'vue/no-empty-pattern': [],
-    'vue/no-extra-parens': [],
-    'vue/no-irregular-whitespace': [],
-    'vue/no-loss-of-precision': [],
-    'vue/no-sparse-arrays': [],
-    'vue/no-useless-concat': [],
-    'vue/object-curly-newline': [],
-    'vue/object-property-newline': [],
-    'vue/object-shorthand': [],
-    'vue/operator-linebreak': [],
-    'vue/prefer-template': [],
-    'vue/quote-props': [],
-    'vue/space-in-parens': [],
-    'vue/template-curly-spacing': [],
-    'vue/experimental-script-setup-vars': [],
-    'vue/no-confusing-v-for-v-if': [],
-    'vue/no-unregistered-components': []
+    'vue/no-deprecated-scope-attribute': 2,
+    'vue/no-deprecated-slot-attribute': 2,
+    'vue/no-deprecated-slot-scope-attribute': 2,
+    'vue/no-v-for-template-key': 2,
+    'vue/multi-word-component-names': 0,
+    'vue/no-arrow-functions-in-watch': 2,
+    'vue/no-computed-properties-in-data': 2,
+    'vue/no-custom-modifiers-on-v-model': 2,
+    'vue/no-dupe-v-else-if': 2,
+    'vue/no-multiple-template-root': 2,
+    'vue/no-mutating-props': 2,
+    'vue/no-reserved-props': [
+      2,
+      {
+        vueVersion: 2
+      }
+    ],
+    'vue/no-useless-template-attributes': 2,
+    'vue/no-v-model-argument': 2,
+    'vue/valid-next-tick': 2,
+    'vue/valid-v-bind-sync': 2,
+    'vue/valid-v-slot': [
+      2,
+      {
+        allowModifiers: false
+      }
+    ],
+    'vue/one-component-per-file': 2,
+    'vue/v-slot-style': [
+      2,
+      {
+        atComponent: 'shorthand',
+        default: 'shorthand',
+        named: 'shorthand'
+      }
+    ],
+    'vue/component-tags-order': [
+      2,
+      {
+        order: ['script', 'template', 'style']
+      }
+    ],
+    'vue/no-lone-template': [
+      2,
+      {
+        ignoreAccessible: false
+      }
+    ],
+    'vue/no-multiple-slot-args': 2,
+    'vue/block-lang': [
+      2,
+      {
+        script: {
+          lang: 'ts'
+        }
+      }
+    ],
+    'vue/block-tag-newline': 0,
+    'vue/component-api-style': 0,
+    'vue/component-options-name-casing': [
+      2,
+      'kebab-case'
+    ],
+    'vue/custom-event-name-casing': [
+      2,
+      'kebab-case',
+      {
+        ignores: []
+      }
+    ],
+    'vue/html-button-has-type': [
+      2,
+      {
+        button: true,
+        submit: true,
+        reset: true
+      }
+    ],
+    'vue/html-comment-content-newline': [
+      2,
+      {
+        singleline: 'never',
+        multiline: 'always'
+      },
+      {
+        exceptions: []
+      }
+    ],
+    'vue/html-comment-content-spacing': [
+      2,
+      'always',
+      {
+        exceptions: []
+      }
+    ],
+    'vue/html-comment-indent': [
+      2,
+      2
+    ],
+    'vue/new-line-between-multi-line-property': 0,
+    'vue/next-tick-style': [
+      2,
+      'promise'
+    ],
+    'vue/no-bare-strings-in-template': 0,
+    'vue/no-child-content': [
+      2,
+      {
+        additionalDirectives: []
+      }
+    ],
+    'vue/no-duplicate-attr-inheritance': 2,
+    'vue/no-empty-component-block': 0,
+    'vue/no-expose-after-await': 2,
+    'vue/no-invalid-model-keys': 2,
+    'vue/no-multiple-objects-in-class': 2,
+    'vue/no-potential-component-option-typo': [
+      2,
+      {
+        presets: ['vue', 'vue-router', 'nuxt'],
+        custom: [],
+        threshold: 1
+      }
+    ],
+    'vue/no-reserved-component-names': [
+      2,
+      {
+        disallowVueBuiltInComponents: true,
+        disallowVue3BuiltInComponents: false
+      }
+    ],
+    'vue/no-restricted-block': 0,
+    'vue/no-restricted-call-after-await': 0,
+    'vue/no-restricted-class': 0,
+    'vue/no-restricted-component-options': 0,
+    'vue/no-restricted-custom-event': 0,
+    'vue/no-restricted-props': 0,
+    'vue/no-restricted-static-attribute': 0,
+    'vue/no-restricted-v-bind': 0,
+    'vue/no-static-inline-styles': 0,
+    'vue/no-template-target-blank': [
+      2,
+      {
+        allowReferrer: false,
+        enforceDynamicLinks: 'always'
+      }
+    ],
+    'vue/no-this-in-before-route-enter': 2,
+    'vue/no-undef-components': 0,
+    'vue/no-undef-properties': [
+      2,
+      {
+        ignores: []
+      }
+    ],
+    // @todo: Describe in readme that you need to specify used vuejs version by yourself
+    'vue/no-unsupported-features': [
+      2,
+      {
+        version: '^3.2.29',
+        ignores: []
+      }
+    ],
+    'vue/no-unused-properties': [
+      2,
+      {
+        groups: ['props'],
+        deepData: false,
+        ignorePublicMembers: false
+      }
+    ],
+    'vue/no-unused-refs': 2,
+    'vue/no-use-computed-property-like-method': 2,
+    'vue/no-useless-mustaches': [
+      2,
+      {
+        ignoreIncludesComment: false,
+        ignoreStringEscape: false
+      }
+    ],
+    'vue/no-useless-v-bind': [
+      2,
+      {
+        ignoreIncludesComment: false,
+        ignoreStringEscape: false
+      }
+    ],
+    'vue/no-v-text-v-html-on-component': 2,
+    'vue/no-v-text': 2,
+    'vue/prefer-separate-static-class': 2,
+    'vue/require-emit-validator': 2,
+    'vue/require-expose': 0,
+    'vue/require-name-property': 2,
+    'vue/sort-keys': 0,
+    'vue/static-class-names-order': 0,
+    'vue/v-for-delimiter-style': [
+      2,
+      'in'
+    ],
+    'vue/array-bracket-newline': [
+      1,
+      {
+        multiline: true
+      }
+    ],
+    'vue/comma-spacing': [
+      1,
+      {
+        before: false,
+        after: true
+      }
+    ],
+    'vue/comma-style': [
+      1,
+      'last'
+    ],
+    'vue/dot-location': [
+      1,
+      'property'
+    ],
+    'vue/dot-notation': 1,
+    'vue/func-call-spacing': [
+      1,
+      'never'
+    ],
+    'vue/keyword-spacing': [
+      1,
+      {
+        before: true,
+        after: true
+      }
+    ],
+    'vue/max-len': [
+      0,
+      {
+        code: 85,
+        ignoreComments: false,
+        ignoreTrailingComments: true,
+        ignoreTemplateLiterals: true,
+        ignoreRegExpLiterals: true,
+        ignoreStrings: true,
+        ignoreUrls: true,
+        tabWidth: 2
+      }
+    ],
+    'vue/no-constant-condition': 1,
+    'vue/no-empty-pattern': 2,
+    'vue/no-extra-parens': [
+      1,
+      'all',
+      {
+        conditionalAssign: true,
+        returnAssign: true,
+        nestedBinaryExpressions: true,
+        ignoreJSX: 'all',
+        enforceForArrowConditionals: false
+      }
+    ],
+    'vue/no-irregular-whitespace': [
+      2,
+      {
+        skipStrings: true,
+        skipComments: false,
+        skipRegExps: false,
+        skipTemplates: false,
+        skipHTMLAttributeValues: false,
+        skipHTMLTextContents: false
+      }
+    ],
+    'vue/no-loss-of-precision': 2,
+    'vue/no-sparse-arrays': 2,
+    'vue/no-useless-concat': 1,
+    'vue/object-curly-newline': [
+      1,
+      {
+        multiline: true,
+        consistent: true
+      }
+    ],
+    'vue/object-property-newline': [
+      1,
+      {
+        allowAllPropertiesOnSameLine: true
+      }
+    ],
+    'vue/object-shorthand': [
+      1,
+      'always'
+    ],
+    'vue/operator-linebreak': [
+      1,
+      'after'
+    ],
+    'vue/prefer-template': 1,
+    'vue/quote-props': [
+      1,
+      'consistent-as-needed',
+      {
+        numbers: true
+      }
+    ],
+    'vue/space-in-parens': [
+      1,
+      'never'
+    ],
+    'vue/template-curly-spacing': [
+      0,
+      'never'
+    ]
   }
 }
