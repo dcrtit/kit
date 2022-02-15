@@ -1,6 +1,6 @@
 {
   "name": "@dcrtit/eslint-config-base",
-  "version": "1.3.1-alpha.0",
+  "version": "1.4.0-alpha.0",
   "description": "Decart's basic ESLint config with primary Javascript rules",
   "author": "Lennoximus <lennoximus@gmail.com>",
   "homepage": "https://github.com/dcrtit/kit#readme",
