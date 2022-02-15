@@ -25,13 +25,12 @@ module.exports = {
     '@dcrtit/eslint-config-vue',
     '@dcrtit/eslint-config-vue3'
   ],
-  rules: {
-    indent: 0
-  },
+  rules: {},
   overrides: [
     {
       files: ['*.vue'],
       rules: {
+        'indent': 0,
         '@typescript-eslint/indent': 'off'
       }
     }
