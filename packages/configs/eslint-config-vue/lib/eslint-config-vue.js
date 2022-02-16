@@ -1,3 +1,5 @@
+const sharedRules = require('../../common/shared')
+
 module.exports = {
   rules: {
     'vue/attribute-hyphenation': [
@@ -49,6 +51,7 @@ module.exports = {
       1,
       2
     ],
+    // https://eslint.vuejs.org/rules/html-quotes.html
     'vue/html-quotes': [
       2,
       'double'
@@ -180,6 +183,7 @@ module.exports = {
         ignoreWhenBindingPresent: false
       }
     ],
+    // https://github.com/vuejs/eslint-plugin-vue/blob/master/docs/rules/no-unused-vars.md
     'vue/no-unused-vars': 1,
     'vue/no-use-v-if-with-v-for': [
       2,
@@ -337,16 +341,10 @@ module.exports = {
         mode: 'strict'
       }
     ],
-    'vue/object-curly-spacing': [
-      1,
-      'never'
-    ],
-    'vue/space-infix-ops': [
-      1,
-      {
-        int32Hint: true
-      }
-    ],
+    // https://eslint.vuejs.org/rules/object-curly-spacing.html
+    'vue/object-curly-spacing': sharedRules['object-curly-spacing'],
+    // https://eslint.vuejs.org/rules/space-infix-ops.html
+    'vue/space-infix-ops': sharedRules['space-infix-ops'],
     'vue/space-unary-ops': [
       1,
       {
@@ -366,13 +364,8 @@ module.exports = {
       1,
       'never'
     ],
-    'vue/brace-style': [
-      1,
-      'stroustrup',
-      {
-        allowSingleLine: true
-      }
-    ],
+    // https://eslint.vuejs.org/rules/brace-style.html
+    'vue/brace-style': sharedRules['brace-style'],
     'vue/camelcase': [
       1,
       {
@@ -380,10 +373,8 @@ module.exports = {
         ignoreDestructuring: true
       }
     ],
-    'vue/comma-dangle': [
-      1,
-      'never'
-    ],
+    // https://eslint.vuejs.org/rules/comma-dangle.html
+    'vue/comma-dangle': sharedRules['comma-dangle'],
     'vue/padding-line-between-blocks': [
       1,
       'always'
@@ -600,13 +591,8 @@ module.exports = {
         multiline: true
       }
     ],
-    'vue/comma-spacing': [
-      1,
-      {
-        before: false,
-        after: true
-      }
-    ],
+    // https://eslint.vuejs.org/rules/comma-spacing.html
+    'vue/comma-spacing': sharedRules['comma-spacing'],
     'vue/comma-style': [
       1,
       'last'
@@ -615,18 +601,12 @@ module.exports = {
       1,
       'property'
     ],
-    'vue/dot-notation': 1,
-    'vue/func-call-spacing': [
-      1,
-      'never'
-    ],
-    'vue/keyword-spacing': [
-      1,
-      {
-        before: true,
-        after: true
-      }
-    ],
+    // https://eslint.vuejs.org/rules/dot-notation.html
+    'vue/dot-notation': sharedRules['dot-notation'],
+    // https://eslint.vuejs.org/rules/func-call-spacing.html
+    'vue/func-call-spacing': sharedRules['func-call-spacing'],
+    // https://eslint.vuejs.org/rules/keyword-spacing.html
+    'vue/keyword-spacing': sharedRules['keyword-spacing'],
     'vue/max-len': [
       0,
       {
@@ -642,17 +622,8 @@ module.exports = {
     ],
     'vue/no-constant-condition': 1,
     'vue/no-empty-pattern': 2,
-    'vue/no-extra-parens': [
-      1,
-      'all',
-      {
-        conditionalAssign: true,
-        returnAssign: true,
-        nestedBinaryExpressions: true,
-        ignoreJSX: 'all',
-        enforceForArrowConditionals: false
-      }
-    ],
+    // https://eslint.vuejs.org/rules/no-extra-parens.html
+    'vue/no-extra-parens': sharedRules['no-extra-parens'],
     'vue/no-irregular-whitespace': [
       2,
       {
@@ -664,7 +635,8 @@ module.exports = {
         skipHTMLTextContents: false
       }
     ],
-    'vue/no-loss-of-precision': 2,
+    // https://eslint.vuejs.org/rules/no-loss-of-precision.html
+    'vue/no-loss-of-precision': sharedRules['no-loss-of-precision'],
     'vue/no-sparse-arrays': 2,
     'vue/no-useless-concat': 1,
     'vue/object-curly-newline': [

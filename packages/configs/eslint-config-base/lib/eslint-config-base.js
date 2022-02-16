@@ -1,12 +1,9 @@
+const sharedRules = require('../../common/shared')
+
 module.exports = {
   rules: {
-    'lines-between-class-members': [
-      1,
-      'always',
-      {
-        exceptAfterSingleLine: true
-      }
-    ],
+    // https://eslint.org/docs/rules/lines-between-class-members
+    'lines-between-class-members': sharedRules['lines-between-class-members'],
     'multiline-comment-style': 0,
     'for-direction': 2,
     'no-await-in-loop': 1,
@@ -27,22 +24,15 @@ module.exports = {
     'no-dupe-keys': 2,
     'no-duplicate-case': 2,
     'no-empty': 1,
-    'no-empty-function': 1,
+    // https://eslint.org/docs/rules/no-empty-function
+    'no-empty-function': sharedRules['no-empty-function'],
     'no-empty-character-class': 1,
     'no-ex-assign': 2,
     'no-extra-boolean-cast': 2,
-    'no-extra-parens': [
-      1,
-      'all',
-      {
-        conditionalAssign: true,
-        returnAssign: true,
-        nestedBinaryExpressions: true,
-        ignoreJSX: 'all',
-        enforceForArrowConditionals: false
-      }
-    ],
-    'no-extra-semi': 2,
+    // https://eslint.org/docs/rules/no-extra-parens
+    'no-extra-parens': sharedRules['no-extra-parens'],
+    // https://eslint.org/docs/rules/no-extra-semi
+    'no-extra-semi': sharedRules['no-extra-semi'],
     'no-func-assign': 2,
     'no-inner-declarations': [
       2,
@@ -115,7 +105,8 @@ module.exports = {
       1,
       'property'
     ],
-    'dot-notation': 1,
+    // https://eslint.org/docs/rules/dot-notation
+    'dot-notation': sharedRules['dot-notation'],
     'eqeqeq': [
       2,
       'always'
@@ -142,13 +133,17 @@ module.exports = {
     'no-global-assign': 2,
     'no-implicit-coercion': 2,
     'no-implicit-globals': 0,
-    'no-implied-eval': 2,
-    'no-invalid-this': 0,
+    // https://eslint.org/docs/rules/no-implied-eval
+    'no-implied-eval': sharedRules['no-implied-eval'],
+    // https://eslint.org/docs/rules/no-invalid-this
+    'no-invalid-this': sharedRules['no-invalid-this'],
     'no-iterator': 2,
     'no-labels': 2,
     'no-lone-blocks': 2,
-    'no-loop-func': 2,
-    'no-magic-numbers': 0,
+    // https://eslint.org/docs/rules/no-loop-func
+    'no-loop-func': sharedRules['no-loop-func'],
+    // https://eslint.org/docs/rules/no-magic-numbers
+    'no-magic-numbers': sharedRules['no-magic-numbers'],
     'no-multi-spaces': [
       1,
       {
@@ -168,18 +163,15 @@ module.exports = {
       }
     ],
     'no-proto': 0,
-    'no-redeclare': [
-      2,
-      {
-        builtinGlobals: true
-      }
-    ],
+    // https://eslint.org/docs/rules/no-redeclare
+    'no-redeclare': sharedRules['no-redeclare'],
     'no-restricted-properties': 0,
     'no-return-assign': [
       2,
       'except-parens'
     ],
-    'no-return-await': 1,
+    // https://eslint.org/docs/rules/no-return-await
+    'no-return-await': sharedRules['no-return-await'],
     'no-script-url': 2,
     'no-self-assign': [
       2,
@@ -189,14 +181,11 @@ module.exports = {
     ],
     'no-self-compare': 2,
     'no-sequences': 2,
-    'no-throw-literal': 1,
+    // https://eslint.org/docs/rules/no-throw-literal
+    'no-throw-literal': sharedRules['no-throw-literal'],
     'no-unmodified-loop-condition': 1,
-    'no-unused-expressions': [
-      2,
-      {
-        allowTaggedTemplates: true
-      }
-    ],
+    // https://eslint.org/docs/rules/no-unused-expressions
+    'no-unused-expressions': sharedRules['no-unused-expressions'],
     'no-unused-labels': 1,
     'no-useless-call': 1,
     'no-useless-concat': 1,
@@ -207,7 +196,8 @@ module.exports = {
     'no-with': 2,
     'prefer-promise-reject-errors': 0,
     'radix': 2,
-    'require-await': 2,
+    // https://eslint.org/docs/rules/require-await
+    'require-await': sharedRules['require-await'],
     'vars-on-top': 2,
     'wrap-iife': [
       2,
@@ -224,38 +214,22 @@ module.exports = {
       }
     ],
     'strict': 0,
-    'init-declarations': 0,
+    // https://eslint.org/docs/rules/init-declarations
+    'init-declarations': sharedRules['init-declarations'],
     'no-catch-shadow': 2,
     'no-delete-var': 2,
     'no-label-var': 2,
     'no-restricted-globals': 0,
-    'no-shadow': [
-      2,
-      {
-        builtinGlobals: true,
-        hoist: 'all',
-        allow: [
-          'name',
-          'event',
-          'e',
-          'error',
-          'context'
-        ]
-      }
-    ],
+    // https://eslint.org/docs/rules/no-shadow
+    'no-shadow': sharedRules['no-shadow'],
     'no-shadow-restricted-names': 2,
     'no-undef': 1,
     'no-undef-init': 2,
     'no-undefined': 0,
-    'no-unused-vars': [
-      1,
-      {
-        caughtErrors: 'all',
-        args: 'after-used',
-        ignoreRestSiblings: true
-      }
-    ],
-    'no-use-before-define': 2,
+    // https://eslint.org/docs/rules/no-unused-vars
+    'no-unused-vars': sharedRules['no-unused-vars'],
+    // https://eslint.org/docs/rules/no-use-before-define
+    'no-use-before-define': sharedRules['no-use-before-define'],
     'callback-return': 0,
     'global-require': 0,
     'handle-callback-err': [
@@ -285,13 +259,8 @@ module.exports = {
       1,
       'never'
     ],
-    'brace-style': [
-      1,
-      'stroustrup',
-      {
-        allowSingleLine: true
-      }
-    ],
+    // https://eslint.org/docs/rules/brace-style
+    'brace-style': sharedRules['brace-style'],
     'camelcase': [
       1,
       {
@@ -300,17 +269,10 @@ module.exports = {
       }
     ],
     'capitalized-comments': 0,
-    'comma-dangle': [
-      1,
-      'never'
-    ],
-    'comma-spacing': [
-      1,
-      {
-        before: false,
-        after: true
-      }
-    ],
+    // https://eslint.org/docs/rules/comma-dangle
+    'comma-dangle': sharedRules['comma-dangle'],
+    // https://eslint.org/docs/rules/comma-spacing
+    'comma-spacing': sharedRules['comma-spacing'],
     'comma-style': [
       1,
       'last'
@@ -324,10 +286,8 @@ module.exports = {
       'that'
     ],
     'eol-last': 0,
-    'func-call-spacing': [
-      1,
-      'never'
-    ],
+    // https://eslint.org/docs/rules/func-call-spacing
+    'func-call-spacing': sharedRules['func-call-spacing'],
     'func-name-matching': [
       1,
       'always'
@@ -346,33 +306,9 @@ module.exports = {
     'id-blacklist': 0,
     'id-length': 0,
     'id-match': 0,
-    'indent': [
-      1,
-      2,
-      {
-        VariableDeclarator: {
-          var: 2,
-          let: 2,
-          const: 3
-        },
-        FunctionExpression: {
-          body: 1,
-          parameters: 'first'
-        },
-        FunctionDeclaration: {
-          body: 1,
-          parameters: 'first'
-        },
-        MemberExpression: 1,
-        ArrayExpression: 1,
-        ObjectExpression: 1,
-        CallExpression: {
-          arguments: 1
-        },
-        SwitchCase: 1,
-        outerIIFEBody: 1
-      }
-    ],
+    // https://eslint.org/docs/rules/indent
+    'indent': sharedRules.indent,
+    // https://eslint.org/docs/rules/jsx-quotes
     'jsx-quotes': [
       1,
       'prefer-double'
@@ -385,13 +321,8 @@ module.exports = {
         mode: 'strict'
       }
     ],
-    'keyword-spacing': [
-      1,
-      {
-        before: true,
-        after: true
-      }
-    ],
+    // https://eslint.org/docs/rules/keyword-spacing
+    'keyword-spacing': sharedRules['keyword-spacing'],
     'line-comment-position': 0,
     'linebreak-style': 0,
     'lines-around-comment': 0,
@@ -439,7 +370,8 @@ module.exports = {
     ],
     'new-parens': 2,
     'newline-per-chained-call': 0,
-    'no-array-constructor': 2,
+    // https://eslint.org/docs/rules/no-array-constructor
+    'no-array-constructor': sharedRules['no-array-constructor'],
     'no-bitwise': [
       1,
       {
@@ -497,10 +429,8 @@ module.exports = {
         consistent: true
       }
     ],
-    'object-curly-spacing': [
-      1,
-      'never'
-    ],
+    // https://eslint.org/docs/rules/object-curly-spacing
+    'object-curly-spacing': sharedRules['object-curly-spacing'],
     'object-property-newline': [
       1,
       {
@@ -521,101 +451,8 @@ module.exports = {
       1,
       'never'
     ],
-    'padding-line-between-statements': [
-      1,
-      {
-        blankLine: 'always',
-        prev: '*',
-        next: 'return'
-      },
-      {
-        blankLine: 'always',
-        prev: '*',
-        next: 'continue'
-      },
-      {
-        blankLine: 'always',
-        prev: '*',
-        next: 'break'
-      },
-      {
-        blankLine: 'always',
-        prev: '*',
-        next: 'function'
-      },
-      {
-        blankLine: 'always',
-        prev: 'function',
-        next: '*'
-      },
-      {
-        blankLine: 'always',
-        prev: '*',
-        next: 'for'
-      },
-      {
-        blankLine: 'always',
-        prev: 'for',
-        next: '*'
-      },
-      {
-        blankLine: 'always',
-        prev: [
-          'const',
-          'let',
-          'var'
-        ],
-        next: '*'
-      },
-      {
-        blankLine: 'any',
-        prev: [
-          'const',
-          'let',
-          'var'
-        ],
-        next: [
-          'const',
-          'let',
-          'var'
-        ]
-      },
-      {
-        blankLine: 'always',
-        prev: 'import',
-        next: '*'
-      },
-      {
-        blankLine: 'any',
-        prev: 'import',
-        next: 'import'
-      },
-      {
-        blankLine: 'always',
-        prev: 'for',
-        next: '*'
-      },
-      {
-        blankLine: 'always',
-        prev: 'directive',
-        next: '*'
-      },
-      {
-        blankLine: 'always',
-        prev: 'if',
-        next: '*'
-      },
-      {
-        blankLine: 'always',
-        prev: '*',
-        next: 'if'
-      },
-      {
-        blankLine: 'any',
-        prev: 'if',
-        next: 'if'
-      }
-    ],
+    // https://eslint.org/docs/rules/padding-line-between-statements
+    'padding-line-between-statements': sharedRules['padding-line-between-statements'],
     'quote-props': [
       1,
       'consistent-as-needed',
@@ -623,13 +460,8 @@ module.exports = {
         numbers: true
       }
     ],
-    'quotes': [
-      1,
-      'single',
-      {
-        avoidEscape: true
-      }
-    ],
+    // https://eslint.org/docs/rules/quotes
+    'quotes': sharedRules.quotes,
     'require-jsdoc': [
       1,
       {
@@ -642,10 +474,8 @@ module.exports = {
         }
       }
     ],
-    'semi': [
-      1,
-      'never'
-    ],
+    // https://eslint.org/docs/rules/semi
+    'semi': sharedRules.semi,
     'semi-spacing': 0,
     'semi-style': 0,
     'sort-keys': 0,
@@ -654,20 +484,14 @@ module.exports = {
       1,
       'always'
     ],
-    'space-before-function-paren': [
-      1,
-      'always'
-    ],
+    // https://eslint.org/docs/rules/space-before-function-paren
+    'space-before-function-paren': sharedRules['space-before-function-paren'],
     'space-in-parens': [
       1,
       'never'
     ],
-    'space-infix-ops': [
-      1,
-      {
-        int32Hint: true
-      }
-    ],
+    // https://eslint.org/docs/rules/space-infix-ops
+    'space-infix-ops': sharedRules['space-infix-ops'],
     'space-unary-ops': [
       1,
       {
@@ -679,7 +503,8 @@ module.exports = {
       1,
       'always'
     ],
-    'no-useless-constructor': 1,
+    // https://eslint.org/docs/rules/no-useless-constructor
+    'no-useless-constructor': sharedRules['no-useless-constructor'],
     'no-useless-rename': 1,
     'no-var': 2,
     'object-shorthand': [
@@ -733,10 +558,13 @@ module.exports = {
       }
     ],
     'no-const-assign': 2,
-    'no-dupe-class-members': 2,
-    'no-duplicate-imports': 1,
+    // https://eslint.org/docs/rules/no-dupe-class-members
+    'no-dupe-class-members': sharedRules['no-dupe-class-members'],
+    // https://eslint.org/docs/rules/no-duplicate-imports
+    'no-duplicate-imports': sharedRules['no-duplicate-imports'],
     'no-new-symbol': 2,
-    'no-restricted-imports': 0,
+    // https://eslint.org/docs/rules/no-restricted-imports
+    'no-restricted-imports': sharedRules['no-restricted-imports'],
     'no-this-before-super': 2,
     'no-useless-computed-key': 1,
     'prefer-arrow-callback': 0,
@@ -765,6 +593,10 @@ module.exports = {
     'yield-star-spacing': [
       1,
       'after'
-    ]
+    ],
+    // https://eslint.org/docs/rules/default-param-last
+    'default-param-last': sharedRules['default-param-last'],
+    // https://eslint.org/docs/rules/no-loss-of-precision
+    'no-loss-of-precision': sharedRules['no-loss-of-precision']
   }
 }
