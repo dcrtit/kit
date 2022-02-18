@@ -20,6 +20,7 @@ module.exports = {
   extends: [
     'plugin:vue/base',
     '@dcrtit/eslint-config-base',
+    '@dcrtit/eslint-config-ts',
     '@dcrtit/eslint-config-import',
     '@dcrtit/eslint-config-unicorn',
     '@dcrtit/eslint-config-vue',
