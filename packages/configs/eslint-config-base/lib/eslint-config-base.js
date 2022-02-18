@@ -1,4 +1,4 @@
-const sharedRules = require('../../common/shared')
+const sharedRules = require('@dcrtit/eslint-utils')
 
 module.exports = {
   rules: {

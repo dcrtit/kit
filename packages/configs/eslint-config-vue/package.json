@@ -26,5 +26,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "ff2c1f647fab2af028fc18a73a2c2b5bd224daff"
+  "gitHead": "ff2c1f647fab2af028fc18a73a2c2b5bd224daff",
+  "devDependencies": {
+    "@dcrtit/eslint-utils": "^1.4.4-alpha.0"
+  }
 }

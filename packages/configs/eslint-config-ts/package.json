@@ -25,5 +25,8 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "@dcrtit/eslint-utils": "^1.4.4-alpha.0"
   }
 }
