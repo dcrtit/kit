@@ -5,7 +5,7 @@
   "author": "Lennoximus <lennoximus@gmail.com>",
   "homepage": "https://github.com/dcrtit/kit#readme",
   "license": "MIT",
-  "main": "lib/shared",
+  "main": "lib/shared.js",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
