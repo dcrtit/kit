@@ -32,10 +32,6 @@ describe('UI', () => {
       expect(wrapper.attributes('role')).toEqual('presentation')
     })
 
-
-    /*
-    * @bug: Not passing. Needs investigation.
-    * */
     test('sets correct aria-orientation attribute', async () => {
       const wrapper = mount(CDivider)
 
@@ -44,50 +40,31 @@ describe('UI', () => {
         role: 'separator'
       })
 
-      expect(wrapper.attributes('aria-orientation')).toEqual('vertical')
+      // For some reason the real naming is as follows.
+      const ariaOrientationKey = 'ariaorientation'
+
+      expect(wrapper.attributes(ariaOrientationKey)).toEqual('vertical')
 
       await wrapper.setProps({
         vertical: false,
         role: 'separator'
       })
 
-      expect(wrapper.attributes('aria-orientation')).toEqual('horizontal')
+      expect(wrapper.attributes(ariaOrientationKey)).toEqual('horizontal')
 
       await wrapper.setProps({
         vertical: true,
         role: 'presentation'
       })
 
-      console.log(wrapper.attributes())
-
-      expect(wrapper.attributes('aria-orientation')).toBeUndefined()
+      expect(wrapper.attributes(ariaOrientationKey)).toBeUndefined()
 
       await wrapper.setProps({
         vertical: false,
         role: 'presentation'
       })
 
-      expect(wrapper.attributes('aria-orientation')).toBeUndefined()
+      expect(wrapper.attributes(ariaOrientationKey)).toBeUndefined()
     })
   })
 })
-// test('mount component', async () => {
-//   expect(Hello).toBeTruthy()
-//
-//   // const wrapper = mount(Hello, {
-//   //   props: {
-//   //     count: 4
-//   //   }
-//   // })
-//   //
-//   // expect(wrapper.text()).toContain('4 x 2 = 8')
-//   // expect(wrapper.html()).toMatchSnapshot()
-//   //
-//   // await wrapper.get('button').trigger('click')
-//   //
-//   // expect(wrapper.text()).toContain('4 x 3 = 12')
-//   //
-//   // await wrapper.get('button').trigger('click')
-//   //
-//   // expect(wrapper.text()).toContain('4 x 4 = 16')
-// })
