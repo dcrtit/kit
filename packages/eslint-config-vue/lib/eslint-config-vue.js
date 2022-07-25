@@ -500,12 +500,7 @@ module.exports = {
       'promise'
     ],
     'vue/no-bare-strings-in-template': 0,
-    'vue/no-child-content': [
-      2,
-      {
-        additionalDirectives: []
-      }
-    ],
+    'vue/no-child-content': 2,
     'vue/no-duplicate-attr-inheritance': 2,
     'vue/no-empty-component-block': 0,
     'vue/no-expose-after-await': 2,
