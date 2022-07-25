@@ -1,10 +1,11 @@
 <script lang="ts" >
   import {defineComponent} from 'vue-demi'
   import {PropType} from 'vue'
-  import {IBreadcrumb, TBreadcrumbTag, TLinkBreadcrumbTag, TLinkAttribute, ILinkOptions} from './types'
+  import {IBreadcrumb, TBreadcrumbTag, TLinkBreadcrumbTag, THrefAttribute, ILinkOptions} from './types'
 
   export default defineComponent({
     name: 'breadcrumbs',
+    expose: [],
     props: {
       items: {
         type: Array as PropType<IBreadcrumb[]>,
@@ -19,7 +20,7 @@
     },
 
     computed: {
-      typeLinkAtrr (): TLinkAttribute {
+      hrefAttribute (): THrefAttribute {
         return this.linkComponent === 'a' ? 'href' : 'to'
       }
     },
@@ -29,7 +30,7 @@
         return index === this.items.length - 1
       },
 
-      componentName (index: number): TBreadcrumbTag {
+      getComponent (index: number): TBreadcrumbTag {
         return this.isLastItem(index) ? 'div' : this.linkComponent
       },
 
@@ -39,7 +40,7 @@
         }
 
         return {
-          [this.typeLinkAtrr]: item.path
+          [this.hrefAttribute]: item.path
         }
       }
     }
@@ -57,10 +58,9 @@
           itemtype="http://schema.org/ListItem"
           itemscope
           style="display: inline-flex; align-items: center; position: relative;">
-        <component :is="componentName(index)"
+        <component :is="getComponent(index)"
                    v-bind="linkOptions(item, index)"
-                   itemprop="item"
-                   style="">
+                   itemprop="item">
           <slot name="item"
                 :item="item"
                 :isLastItem="isLastItem(index)"
