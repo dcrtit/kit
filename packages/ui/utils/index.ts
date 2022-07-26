@@ -1,7 +1,7 @@
-import attachClass from './attachClass'
+import getAttachedClasses from './getAttachedClasses'
 import isLast from './isLast'
 
 export {
-  attachClass,
+  getAttachedClasses,
   isLast
 }

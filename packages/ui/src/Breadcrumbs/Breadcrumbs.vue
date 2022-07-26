@@ -1,7 +1,7 @@
 <script lang="ts" >
   import {defineComponent} from 'vue-demi'
   import {PropType} from 'vue'
-  import {attachClass, isLast} from '../../utils'
+  import {getAttachedClasses, isLast} from '../../utils'
   import {
     IBreadcrumb,
     TBreadcrumbTag,
@@ -57,7 +57,7 @@
           .reduce((classNamesObject, [className, classValue]) => Object.assign(
             classNamesObject,
             {
-              [className]: attachClass(classValue, this.$style[className], {
+              [className]: getAttachedClasses(classValue, this.$style[className], {
                 mergeWithDefaults
               })
             }
