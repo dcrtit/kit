@@ -58,10 +58,10 @@ describe('UI', () => {
       expect(a.attributes('itemprop')).toEqual('item')
     })
 
-    test('computes correct link attribute', () => {
-      console.log(wrapper, 'hui')
-
-      expect(wrapper.vm.hrefAttribute).toEqual('href')
-    })
+    // test('computes correct link attribute', () => {
+    //   console.log(wrapper, 'hui')
+    //
+    //   expect(wrapper.vm.hrefAttribute).toEqual('href')
+    // })
   })
 })
