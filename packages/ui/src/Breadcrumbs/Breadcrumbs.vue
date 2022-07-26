@@ -1,7 +1,7 @@
 <script lang="ts" >
   import {defineComponent} from 'vue-demi'
   import {PropType} from 'vue'
-  import {attachClass} from '../../utils'
+  import {attachClass, isLast} from '../../utils'
   import {
     IBreadcrumb,
     TBreadcrumbTag,
@@ -39,6 +39,12 @@
       }
     },
 
+    data () {
+      return {
+        isLast
+      }
+    },
+
     computed: {
       hrefAttribute (): THrefAttribute {
         return this.linkComponent === 'a' ? 'href' : 'to'
@@ -64,16 +70,12 @@
     },
 
     methods: {
-      isLastItem (index: number): boolean {
-        return index === this.items.length - 1
-      },
-
       getComponent (index: number): TBreadcrumbTag {
-        return this.isLastItem(index) ? 'div' : this.linkComponent
+        return isLast(index, this.items) ? 'div' : this.linkComponent
       },
 
       linkOptions (item: IBreadcrumb, index: number): ILinkOptions {
-        if (this.isLastItem(index)) {
+        if (isLast(index, this.items)) {
           return {}
         }
 
@@ -102,12 +104,12 @@
                    itemprop="item">
           <slot name="item"
                 :item="item"
-                :isLastItem="isLastItem(index)"
+                :isLastItem="isLast(index, items)"
                 :attrs="{itemprop: 'name'}"/>
           <meta itemprop="position"
                 :content="index">
         </component>
-        <slot v-if="!isLastItem(index)"
+        <slot v-if="!isLast(index, items)"
               name="separator"/>
       </li>
     </ul>
