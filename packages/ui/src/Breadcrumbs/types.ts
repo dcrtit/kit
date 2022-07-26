@@ -6,6 +6,19 @@ export interface IBreadcrumb {
     path?: TBreadcrumbPath
 }
 
+// @todo: Investigate, where `no-shadow` error is coming from.
+// eslint-disable-next-line no-shadow
+export enum EBreadcrumbsCSSClasses {
+    List = 'list',
+    ListItem = 'listItem',
+    ListItemLink = 'listItemLink'
+}
+
+export interface IBreadcrumbsCSSOptions {
+    classes: Record<EBreadcrumbsCSSClasses, string>
+    mergeWithDefaults: boolean
+}
+
 export interface ILinkOptions {
     href?: TBreadcrumbPath
     to?: TBreadcrumbPath

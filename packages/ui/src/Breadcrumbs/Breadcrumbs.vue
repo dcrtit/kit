@@ -1,10 +1,18 @@
 <script lang="ts" >
   import {defineComponent} from 'vue-demi'
   import {PropType} from 'vue'
-  import {IBreadcrumb, TBreadcrumbTag, TLinkBreadcrumbTag, THrefAttribute, ILinkOptions} from './types'
+  import {attachClass} from '../../utils'
+  import {
+    IBreadcrumb,
+    TBreadcrumbTag,
+    TLinkBreadcrumbTag,
+    THrefAttribute,
+    ILinkOptions,
+    IBreadcrumbsCSSOptions, EBreadcrumbsCSSClasses
+  } from './types'
 
   export default defineComponent({
-    name: 'breadcrumbs',
+    name: 'd-breadcrumbs',
     expose: [],
     props: {
       items: {
@@ -16,12 +24,42 @@
         type: String as PropType<TLinkBreadcrumbTag>,
         required: false,
         default: 'a'
+      },
+      cssOptions: {
+        type: Object as PropType<IBreadcrumbsCSSOptions>,
+        required: false,
+        default: () => ({
+          classes: {
+            [EBreadcrumbsCSSClasses.List]: '',
+            [EBreadcrumbsCSSClasses.ListItem]: '',
+            [EBreadcrumbsCSSClasses.ListItemLink]: ''
+          },
+          mergeWithDefaults: false
+        })
       }
     },
 
     computed: {
       hrefAttribute (): THrefAttribute {
         return this.linkComponent === 'a' ? 'href' : 'to'
+      },
+
+      attachedClasses (): IBreadcrumbsCSSOptions['classes'] {
+        const {classes, mergeWithDefaults} = this.cssOptions
+
+        return Object.entries(classes)
+          .reduce((classNamesObject, [className, classValue]) => Object.assign(
+            classNamesObject,
+            {
+              [className]: attachClass(classValue, this.$style[className], {
+                mergeWithDefaults
+              })
+            }
+          ), {
+            [EBreadcrumbsCSSClasses.List]: '',
+            [EBreadcrumbsCSSClasses.ListItem]: '',
+            [EBreadcrumbsCSSClasses.ListItemLink]: ''
+          })
       }
     },
 
@@ -50,15 +88,16 @@
 <template>
   <nav>
     <ul itemscope
-        itemtype="http://schema.org/BreadcrumbList"
-        style="list-style: none; display: flex; align-items: center; justify-content: flex-start; margin: 0; padding: 0;">
+        :class="attachedClasses.list"
+        itemtype="http://schema.org/BreadcrumbList">
       <li v-for="(item, index) in items"
           :key="item.path"
+          :class="attachedClasses.listItem"
           itemprop="itemListElement"
           itemtype="http://schema.org/ListItem"
-          itemscope
-          style="display: inline-flex; align-items: center; position: relative;">
+          itemscope>
         <component :is="getComponent(index)"
+                   :class="attachedClasses.listItemLink"
                    v-bind="linkOptions(item, index)"
                    itemprop="item">
           <slot name="item"
@@ -75,4 +114,21 @@
   </nav>
 </template>
 
-<style/>
+<style module>
+  .list {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+  }
+
+  .listItem {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .listItemLink {}
+</style>
