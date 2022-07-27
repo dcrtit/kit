@@ -2,13 +2,13 @@
   import {defineComponent} from 'vue-demi'
   import {PropType} from 'vue'
   import {getAttachedClasses, isLast} from '../../utils'
+  import {THrefAttribute, TLinkTag} from '../../types'
   import {
     IBreadcrumb,
     TBreadcrumbTag,
-    TLinkBreadcrumbTag,
-    THrefAttribute,
     ILinkOptions,
-    IBreadcrumbsCSSOptions, EBreadcrumbsCSSClasses
+    IBreadcrumbsCSSOptions,
+    EBreadcrumbsCSSClasses
   } from './types'
 
   export default defineComponent({
@@ -21,7 +21,7 @@
         default: () => []
       },
       linkComponent: {
-        type: String as PropType<TLinkBreadcrumbTag>,
+        type: String as PropType<TLinkTag>,
         required: false,
         default: 'a'
       },

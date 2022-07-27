@@ -1,4 +1,6 @@
 // @todo: добавить поддержку типа "объект" для path
+import {TLinkTag} from '../../types'
+
 export type TBreadcrumbPath = string
 
 export interface IBreadcrumb {
@@ -24,6 +26,4 @@ export interface ILinkOptions {
     to?: TBreadcrumbPath
 }
 
-export type TLinkBreadcrumbTag = 'a' | 'nuxt-link' | 'router-link'
-export type TBreadcrumbTag = TLinkBreadcrumbTag | 'div'
-export type THrefAttribute = 'href' | 'to'
+export type TBreadcrumbTag = TLinkTag | 'div'

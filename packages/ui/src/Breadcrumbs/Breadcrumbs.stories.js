@@ -1,20 +1,5 @@
 import CBreadcrumbs from './Breadcrumbs.vue'
 
-// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
-export default {
-  title: 'Example/Breadcrumbs',
-  component: CBreadcrumbs
-  // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
-  // argTypes: {
-  //   backgroundColor: { control: 'color' },
-  //   onClick: {},
-  //   size: {
-  //     control: { type: 'select' },
-  //     options: ['small', 'medium', 'large'],
-  //   },
-  // },
-}
-
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = args => ({
   // Components used in your story `template` are defined in the `components` object
@@ -26,11 +11,9 @@ const Template = args => ({
   // And then the `args` are bound to your component with `v-bind="args"`
   template: `
     <CBreadcrumbs v-bind="args">
-      <template #item="slotItem">
-        <div>
-          <h4>
-            {{ slotItem.item.name }}
-          </h4>
+      <template #item="{ item }">
+        <div class="p-2">
+          {{ item.name }}
         </div>
       </template>
     </CBreadcrumbs>
@@ -47,11 +30,9 @@ const TemplateSeparator = args => ({
   // And then the `args` are bound to your component with `v-bind="args"`
   template: `
     <CBreadcrumbs v-bind="args">
-      <template #item="slotItem">
-        <div>
-          <p>
-            {{ slotItem.item.name }}
-          </p>
+      <template #item="{ item }">
+        <div class="p-2">
+          {{ item.name }}
         </div>
       </template>
       <template #separator>
@@ -63,7 +44,8 @@ const TemplateSeparator = args => ({
   `
 })
 
-export const NoSeparator = Template.bind({})
+const NoSeparator = Template.bind({})
+
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 NoSeparator.args = {
   items: [
@@ -86,7 +68,8 @@ NoSeparator.args = {
   ]
 }
 
-export const Separator = TemplateSeparator.bind({})
+const Separator = TemplateSeparator.bind({})
+
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 Separator.args = {
   items: [
@@ -113,7 +96,8 @@ Separator.args = {
   ]
 }
 
-export const routerLink = TemplateSeparator.bind({})
+const routerLink = TemplateSeparator.bind({})
+
 // More on args: https://storybook.js.org/docs/vue/writing-stories/args
 routerLink.args = {
   linkComponent: 'router-link',
@@ -139,4 +123,25 @@ routerLink.args = {
       path: '/category_1/category_1.2/product'
     }
   ]
+}
+
+// More on default export: https://storybook.js.org/docs/vue/writing-stories/introduction#default-export
+export default {
+  title: 'Example/Breadcrumbs',
+  component: CBreadcrumbs
+  // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
+  // argTypes: {
+  //   backgroundColor: { control: 'color' },
+  //   onClick: {},
+  //   size: {
+  //     control: { type: 'select' },
+  //     options: ['small', 'medium', 'large'],
+  //   },
+  // },
+}
+
+export {
+  NoSeparator,
+  Separator,
+  routerLink
 }
